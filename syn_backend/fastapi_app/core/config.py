@@ -93,7 +93,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str = ""
 
     # Redis / Celery (optional)
-    REDIS_URL: str = "redis://localhost:6379/0"
+    REDIS_URL: str = "redis://:123456@localhost:6379/0"
     CELERY_BROKER_URL: str = ""  # defaults to REDIS_URL when empty
     CELERY_RESULT_BACKEND: str = ""  # defaults to REDIS_URL when empty
 

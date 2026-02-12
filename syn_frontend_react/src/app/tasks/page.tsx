@@ -368,10 +368,16 @@ export default function TasksPage() {
     xiaohongshu: "小红书",
     bilibili: "B站",
     channels: "视频号",
-    "2": "快手",
+    "1": "小红书",
+    "2": "视频号",
     "3": "抖音",
-    "platform_2": "快手",
-    "platform_3": "抖音"
+    "4": "快手",
+    "5": "B站",
+    "platform_1": "小红书",
+    "platform_2": "视频号",
+    "platform_3": "抖音",
+    "platform_4": "快手",
+    "platform_5": "B站"
   }
 
   const renderPagination = (

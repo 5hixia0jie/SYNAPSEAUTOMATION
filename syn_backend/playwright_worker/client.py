@@ -10,7 +10,7 @@ from loguru import logger
 class PlaywrightWorkerClient:
     """Playwright Worker HTTP 客户端"""
 
-    def __init__(self, worker_url: str = "http://127.0.0.1:7001"):
+    def __init__(self, worker_url: str = "http://127.0.0.1:7002"):
         self.worker_url = worker_url.rstrip("/")
         self.client = httpx.AsyncClient(timeout=30.0)
 

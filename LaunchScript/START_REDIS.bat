@@ -3,16 +3,18 @@ echo ========================================
 echo Starting Redis Server
 echo ========================================
 
-cd /d "%~dp0syn_backend\Redis"
+set "REDIS_PATH=D:\Redis\Redis-x64-5.0.14.1"
 
-if not exist redis-server.exe (
-    echo ERROR: redis-server.exe not found!
+if not exist "%REDIS_PATH%\redis-server.exe" (
+    echo ERROR: redis-server.exe not found at %REDIS_PATH%
     pause
     exit /b 1
 )
 
-echo Starting Redis on port 6379...
-start "Redis Server" cmd /k "redis-server.exe"
+cd /d "%REDIS_PATH%"
+
+echo Starting Redis on port 6379 with password protection...
+start "Redis Server" cmd /k "redis-server.exe \"D:\traeProject\SYNAPSEAUTOMATION\redis.conf\""
 
 echo.
 echo Redis Server is starting in a new window...

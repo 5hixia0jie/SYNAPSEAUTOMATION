@@ -117,7 +117,17 @@ async def cookie_auth(account_file):
         except Exception:
             pass
         try:
-            await page.wait_for_url("https://creator.xiaohongshu.com/creator-micro/content/upload", timeout=5000)
+            # 使用轮询方式替代wait_for_url
+            url_match = False
+            for _ in range(10):  # 最多尝试10次，每次0.5秒
+                current_url = page.url
+                if "https://creator.xiaohongshu.com/creator-micro/content/upload" in current_url:
+                    url_match = True
+                    break
+                await asyncio.sleep(0.5)
+            
+            if not url_match:
+                raise Exception("URL未匹配")
         except:
             print("[+] 等待5秒 cookie 失效")
             await context.close()
@@ -233,38 +243,77 @@ class XiaoHongShuVideo(object):
         xiaohongshu_logger.info(f'[+]正在上传-------{self.title}.mp4')
         # 等待页面跳转到指定的 URL，没进入，则自动等待到超时
         xiaohongshu_logger.info(f'[-] 正在打开主页...')
-        await page.wait_for_url("https://creator.xiaohongshu.com/publish/publish?from=homepage&target=video")
+        # 使用轮询方式替代wait_for_url
+        url_match = False
+        for _ in range(10):  # 最多尝试10次，每次0.5秒
+            current_url = page.url
+            if "https://creator.xiaohongshu.com/publish/publish?from=homepage&target=video" in current_url:
+                url_match = True
+                break
+            await asyncio.sleep(0.5)
+        
+        if not url_match:
+            xiaohongshu_logger.warning("[-] 主页URL匹配超时，继续执行")
         # 点击 "上传视频" 按钮
         await page.locator("div[class^='upload-content'] input[class='upload-input']").set_input_files(self.file_path)
 
         # 等待页面跳转到指定的 URL 2025.01.08修改在原有基础上兼容两种页面
-        while True:
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
             try:
-                # 等待upload-input元素出现
-                upload_input = await page.wait_for_selector('input.upload-input', timeout=3000)
-                # 获取下一个兄弟元素
-                preview_new = await upload_input.query_selector(
-                    'xpath=following-sibling::div[contains(@class, "preview-new")]')
-                if preview_new:
-                    # 在preview-new元素中查找包含"上传成功"的stage元素
-                    stage_elements = await preview_new.query_selector_all('div.stage')
-                    upload_success = False
-                    for stage in stage_elements:
-                        text_content = await page.evaluate('(element) => element.textContent', stage)
-                        if '上传成功' in text_content:
-                            upload_success = True
-                            break
-                    if upload_success:
-                        xiaohongshu_logger.info("[+] 检测到上传成功标识!")
-                        break  # 成功检测到上传成功后跳出循环
-                    else:
-                        print("  [-] 未找到上传成功标识，继续等待...")
+                # 使用更可靠的轮询方式替代wait_for_selector
+                upload_success = False
+                
+                for _ in range(10):  # 最多尝试10次
+                    try:
+                        # 直接查询元素，不使用wait_for_selector
+                        upload_input = await page.query_selector('input.upload-input')
+                        if upload_input:
+                            # 获取下一个兄弟元素
+                            preview_new = await upload_input.query_selector(
+                                'xpath=following-sibling::div[contains(@class, "preview-new")]')
+                            if preview_new:
+                                # 在preview-new元素中查找包含"上传成功"的stage元素
+                                stage_elements = await preview_new.query_selector_all('div.stage')
+                                for stage in stage_elements:
+                                    text_content = await page.evaluate('(element) => element.textContent', stage)
+                                    if '上传成功' in text_content:
+                                        upload_success = True
+                                        break
+                                if upload_success:
+                                    xiaohongshu_logger.info("[+] 检测到上传成功标识!")
+                                    break  # 成功检测到上传成功后跳出循环
+                                else:
+                                    print("  [-] 未找到上传成功标识，继续等待...")
+                            else:
+                                print("  [-] 未找到预览元素，继续等待...")
+                        else:
+                            print("  [-] 未找到上传输入元素，继续等待...")
+                        await asyncio.sleep(1)
+                    except Exception as inner_e:
+                        print(f"  [-] 轮询过程出错: {str(inner_e)}，继续尝试...")
+                        await asyncio.sleep(0.5)
+                
+                if upload_success:
+                    break
                 else:
-                    print("  [-] 未找到预览元素，继续等待...")
-                    await asyncio.sleep(1)
+                    print("  [-] 超时未检测到上传成功标识，继续等待...")
+                    retry_count += 1
+                    await asyncio.sleep(2)
+                    
             except Exception as e:
-                print(f"  [-] 检测过程出错: {str(e)}，重新尝试...")
-                await asyncio.sleep(0.5)  # 等待0.5秒后重新尝试
+                error_msg = str(e)
+                print(f"  [-] 检测过程出错: {error_msg}，重新尝试...")
+                
+                # 检查是否是连接关闭错误
+                if "Connection closed" in error_msg or "read ECONNRESET" in error_msg:
+                    print("  [-] 浏览器连接已关闭，准备重新初始化...")
+                    retry_count += 1
+                    await asyncio.sleep(1)
+                else:
+                    await asyncio.sleep(0.5)  # 等待0.5秒后重新尝试
 
         # 填充标题和话题
         # 检查是否存在包含输入框的元素
@@ -339,10 +388,25 @@ class XiaoHongShuVideo(object):
 
                         # 等待下拉列表出现（小红书会请求 API 获取推荐标签）
                         try:
-                            # 等待建议列表出现
-                            await page.wait_for_selector('.suggestion, [class*="suggestion"], [data-decoration-id]', timeout=2000, state='visible')
-                            await asyncio.sleep(0.2)
-                            xiaohongshu_logger.debug(f'  [+] 标签 #{tag} 的推荐列表已出现')
+                            # 使用轮询方式替代wait_for_selector
+                            suggestion_found = False
+                            for _ in range(5):  # 最多尝试5次
+                                suggestion_elements = await page.query_selector_all('.suggestion, [class*="suggestion"], [data-decoration-id]')
+                                if suggestion_elements:
+                                    # 检查是否有可见的建议元素
+                                    for element in suggestion_elements:
+                                        if await element.is_visible():
+                                            suggestion_found = True
+                                            break
+                                    if suggestion_found:
+                                        break
+                                await asyncio.sleep(0.4)
+                            
+                            if suggestion_found:
+                                await asyncio.sleep(0.2)
+                                xiaohongshu_logger.debug(f'  [+] 标签 #{tag} 的推荐列表已出现')
+                            else:
+                                raise Exception("推荐列表未出现")
                         except Exception as e:
                             xiaohongshu_logger.warning(f'  [!] 标签 #{tag} 未找到推荐列表，直接确认: {str(e)[:50]}')
 
@@ -451,15 +515,34 @@ class XiaoHongShuVideo(object):
             await page.screenshot(path='logs/xhs_publish_fail.png', full_page=True)
 
         # 等待发布成功跳转
-        while True:
+        max_wait_time = 60  # 最大等待时间60秒
+        wait_start = datetime.now()
+        
+        while (datetime.now() - wait_start).total_seconds() < max_wait_time:
             try:
-                await page.wait_for_url(
-                    "https://creator.xiaohongshu.com/publish/success?**",
-                    timeout=3000
-                )  # 如果自动跳转到作品页面，则代表发布成功
-                xiaohongshu_logger.success("  [-]视频发布成功")
-                break
-            except:
+                # 使用轮询方式替代wait_for_url
+                current_url = page.url
+                if "https://creator.xiaohongshu.com/publish/success" in current_url:
+                    xiaohongshu_logger.success("  [-]视频发布成功")
+                    break
+                
+                # 检查是否有发布失败的提示
+                error_elements = await page.query_selector_all('div:has-text("发布失败"), div:has-text("发布出错"), div:has-text("上传失败")')
+                for element in error_elements:
+                    if await element.is_visible():
+                        xiaohongshu_logger.error("  [-]视频发布失败")
+                        break
+                
+                xiaohongshu_logger.info("  [-] 等待发布完成中...")
+                await asyncio.sleep(0.5)
+            except Exception as e:
+                error_msg = str(e)
+                print(f"  [-] 等待发布完成时出错: {error_msg}")
+                
+                # 检查是否是连接关闭错误
+                if "Connection closed" in error_msg or "read ECONNRESET" in error_msg:
+                    print("  [-] 浏览器连接已关闭，但继续等待发布结果...")
+                
                 xiaohongshu_logger.info("  [-] 等待发布完成中...")
                 await asyncio.sleep(0.5)
 
@@ -472,14 +555,35 @@ class XiaoHongShuVideo(object):
 
     async def set_thumbnail(self, page: Page, thumbnail_path: str):
         if thumbnail_path:
-            await page.click('text="选择封面"')
-            await page.wait_for_selector("div.semi-modal-content:visible")
-            await page.click('text="设置竖封面"')
-            await page.wait_for_timeout(1000)  # 减少延迟：2秒 → 1秒
-            # 定位到上传区域并点击
-            await page.locator("div[class^='semi-upload upload'] >> input.semi-upload-hidden-input").set_input_files(thumbnail_path)
-            await page.wait_for_timeout(1000)  # 减少延迟：2秒 → 1秒
-            await page.locator("div[class^='extractFooter'] button:visible:has-text('完成')").click()
+            try:
+                await page.click('text="选择封面"')
+                
+                # 使用轮询方式替代wait_for_selector
+                for _ in range(5):
+                    modal = await page.query_selector("div.semi-modal-content:visible")
+                    if modal:
+                        break
+                    await asyncio.sleep(0.5)
+                
+                await page.click('text="设置竖封面"')
+                await page.wait_for_timeout(1000)  # 减少延迟：2秒 → 1秒
+                
+                # 定位到上传区域并点击
+                upload_input = await page.locator("div[class^='semi-upload upload'] >> input.semi-upload-hidden-input")
+                if await upload_input.count() > 0:
+                    await upload_input.set_input_files(thumbnail_path)
+                    await page.wait_for_timeout(1000)  # 减少延迟：2秒 → 1秒
+                    
+                    # 等待完成按钮出现
+                    for _ in range(5):
+                        finish_btn = await page.locator("div[class^='extractFooter'] button:visible:has-text('完成')").first
+                        if await finish_btn.count() > 0 and await finish_btn.is_visible():
+                            await finish_btn.click()
+                            break
+                        await asyncio.sleep(0.5)
+            except Exception as e:
+                xiaohongshu_logger.warning(f"设置封面失败: {str(e)}")
+                # 继续执行，不影响发布流程
             # finish_confirm_element = page.locator("div[class^='confirmBtn'] >> div:has-text('完成')")
             # if await finish_confirm_element.count():
             #     await finish_confirm_element.click()
@@ -488,101 +592,133 @@ class XiaoHongShuVideo(object):
     async def set_location(self, page: Page, location: str = "青岛市"):
         print(f"开始设置位置: {location}")
         
-        # 点击地点输入框
-        print("等待地点输入框加载...")
-        loc_ele = await page.wait_for_selector('div.d-text.d-select-placeholder.d-text-ellipsis.d-text-nowrap')
-        print(f"已定位到地点输入框: {loc_ele}")
-        await loc_ele.click()
-        print("点击地点输入框完成")
-        
-        # 输入位置名称
-        print(f"等待1秒后输入位置名称: {location}")
-        await page.wait_for_timeout(1000)
-        await page.keyboard.type(location)
-        print(f"位置名称输入完成: {location}")
-
-        # 等待下拉列表加载
-        print("等待下拉列表加载...")
-        dropdown_selector = 'div.d-popover.d-popover-default.d-dropdown.--size-min-width-large'
-        await page.wait_for_timeout(1000)  # 减少延迟：3秒 → 1秒
         try:
-            await page.wait_for_selector(dropdown_selector, timeout=3000)
-            print("下拉列表已加载")
-        except:
-            print("下拉列表未按预期显示，可能结构已变化")
+            # 点击地点输入框
+            print("等待地点输入框加载...")
+            # 使用轮询方式替代wait_for_selector
+            loc_ele = None
+            for _ in range(5):
+                loc_ele = await page.query_selector('div.d-text.d-select-placeholder.d-text-ellipsis.d-text-nowrap')
+                if loc_ele:
+                    break
+                await asyncio.sleep(0.5)
+            
+            if not loc_ele:
+                print("未找到地点输入框，跳过位置设置")
+                return False
+            
+            print(f"已定位到地点输入框: {loc_ele}")
+            await loc_ele.click()
+            print("点击地点输入框完成")
+            
+            # 输入位置名称
+            print(f"等待1秒后输入位置名称: {location}")
+            await page.wait_for_timeout(1000)
+            await page.keyboard.type(location)
+            print(f"位置名称输入完成: {location}")
 
-        # 增加等待时间以确保内容加载完成
-        print("额外等待0.5秒确保内容渲染完成...")
-        await page.wait_for_timeout(500)  # 减少延迟：1秒 → 0.5秒
-
-        # 尝试更灵活的XPath选择器
-        print("尝试使用更灵活的XPath选择器...")
-        flexible_xpath = (
-            f'//div[contains(@class, "d-popover") and contains(@class, "d-dropdown")]'
-            f'//div[contains(@class, "d-options-wrapper")]'
-            f'//div[contains(@class, "d-grid") and contains(@class, "d-options")]'
-            f'//div[contains(@class, "name") and text()="{location}"]'
-        )
-        await page.wait_for_timeout(500)  # 减少延迟：3秒 → 0.5秒
-        
-        # 尝试定位元素
-        print(f"尝试定位包含'{location}'的选项...")
-        try:
-            # 先尝试使用更灵活的选择器
-            location_option = await page.wait_for_selector(
-                flexible_xpath,
-                timeout=3000
+            # 等待下拉列表加载
+            print("等待下拉列表加载...")
+            await page.wait_for_timeout(1000)  # 减少延迟：3秒 → 1秒
+            
+            # 尝试更灵活的XPath选择器
+            print("尝试使用更灵活的XPath选择器...")
+            flexible_xpath = (
+                f'//div[contains(@class, "d-popover") and contains(@class, "d-dropdown")]'
+                f'//div[contains(@class, "d-options-wrapper")]'
+                f'//div[contains(@class, "d-grid") and contains(@class, "d-options")]'
+                f'//div[contains(@class, "name") and contains(text(), "{location}")]'
             )
+            await page.wait_for_timeout(500)  # 减少延迟：3秒 → 0.5秒
+            
+            # 尝试定位元素
+            print(f"尝试定位包含'{location}'的选项...")
+            location_option = None
+            
+            # 先尝试使用更灵活的选择器
+            for _ in range(5):
+                try:
+                    location_option = await page.query_selector(flexible_xpath)
+                    if location_option:
+                        break
+                    await asyncio.sleep(0.5)
+                except Exception as inner_e:
+                    print(f"  尝试定位失败: {inner_e}")
+                    await asyncio.sleep(0.5)
+            
+            if not location_option:
+                # 如果灵活选择器失败，再尝试其他选择器
+                print("灵活选择器未找到元素，尝试其他选择器...")
+                alternative_selectors = [
+                    f'//div[contains(text(), "{location}")]',
+                    f'//div[contains(@class, "option") and contains(text(), "{location}")]',
+                    f'//div[contains(@class, "name") and contains(text(), "{location}")]'
+                ]
+                
+                for selector in alternative_selectors:
+                    for _ in range(3):
+                        try:
+                            location_option = await page.query_selector(selector)
+                            if location_option:
+                                break
+                            await asyncio.sleep(0.3)
+                        except:
+                            pass
+                    if location_option:
+                        break
             
             if location_option:
                 print(f"使用灵活选择器定位成功: {location_option}")
+                
+                # 滚动到元素并点击
+                print("滚动到目标选项...")
+                try:
+                    await location_option.scroll_into_view_if_needed()
+                    print("元素已滚动到视图内")
+                    
+                    # 增加元素可见性检查
+                    is_visible = await location_option.is_visible()
+                    print(f"目标选项是否可见: {is_visible}")
+                    
+                    # 点击元素
+                    print("准备点击目标选项...")
+                    await location_option.click()
+                    print(f"成功选择位置: {location}")
+                    return True
+                except Exception as e:
+                    print(f"点击位置失败: {e}")
+                    return False
             else:
-                # 如果灵活选择器失败，再尝试原选择器
-                print("灵活选择器未找到元素，尝试原始选择器...")
-                location_option = await page.wait_for_selector(
-                    f'//div[contains(@class, "d-popover") and contains(@class, "d-dropdown")]'
-                    f'//div[contains(@class, "d-options-wrapper")]'
-                    f'//div[contains(@class, "d-grid") and contains(@class, "d-options")]'
-                    f'/div[1]//div[contains(@class, "name") and text()="{location}"]',
-                    timeout=2000
-                )
-            
-            # 滚动到元素并点击
-            print("滚动到目标选项...")
-            await location_option.scroll_into_view_if_needed()
-            print("元素已滚动到视图内")
-            
-            # 增加元素可见性检查
-            is_visible = await location_option.is_visible()
-            print(f"目标选项是否可见: {is_visible}")
-            
-            # 点击元素
-            print("准备点击目标选项...")
-            await location_option.click()
-            print(f"成功选择位置: {location}")
-            return True
-            
+                print("未找到位置选项，跳过位置设置")
+                return False
+                
         except Exception as e:
-            print(f"定位位置失败: {e}")
+            print(f"设置位置失败: {e}")
             
             # 打印更多调试信息
-            print("尝试获取下拉列表中的所有选项...")
             try:
+                print("尝试获取下拉列表中的所有选项...")
                 all_options = await page.query_selector_all(
                     '//div[contains(@class, "d-popover") and contains(@class, "d-dropdown")]'
                     '//div[contains(@class, "d-options-wrapper")]'
                     '//div[contains(@class, "d-grid") and contains(@class, "d-options")]'
                     '/div'
                 )
-                print(f"找到 {len(all_options)} 个选项")
-                
-                # 打印前3个选项的文本内容
-                for i, option in enumerate(all_options[:3]):
-                    option_text = await option.inner_text()
-                    print(f"选项 {i+1}: {option_text.strip()[:50]}...")
+                if all_options:
+                    print(f"找到 {len(all_options)} 个选项")
                     
-            except Exception as e:
-                print(f"获取选项列表失败: {e}")
+                    # 打印前3个选项的文本内容
+                    for i, option in enumerate(all_options[:3]):
+                        try:
+                            option_text = await option.inner_text()
+                            print(f"选项 {i+1}: {option_text.strip()[:50]}...")
+                        except:
+                            pass
+                else:
+                    print("未找到任何选项")
+                    
+            except Exception as inner_e:
+                print(f"获取选项列表失败: {inner_e}")
                 
             # 截图保存（取消注释使用）
             # await page.screenshot(path=f"location_error_{location}.png")

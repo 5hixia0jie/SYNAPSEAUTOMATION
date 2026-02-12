@@ -142,7 +142,18 @@ from app_new.platforms.bilibili import BilibiliAdapter
 from app_new.platforms.base import LoginStatus
 
 # 创建 FastAPI 应用
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="Playwright Worker", version="1.0.0")
+
+# 配置 CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 在生产环境中应该设置具体的前端域名
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Ensure bundled Playwright Chromium exists on worker host.
 @app.on_event("startup")
@@ -1376,7 +1387,7 @@ async def shutdown_event():
 if __name__ == "__main__":
     # 配置
     HOST = "127.0.0.1"
-    PORT = 7001  # 使用不同的端口，避免与 API 服务冲突
+    PORT = 7002  # 使用不同的端口，避免与 API 服务冲突
 
     logger.info(f"Starting Playwright Worker on http://{HOST}:{PORT}")
 

@@ -11,7 +11,7 @@ set "VENV_PATH=%ROOT%synenv"
 set "PY=%VENV_PATH%\Scripts\python.exe"
 
 set "REDIS_CLI=redis-cli"
-if exist "%ROOT%syn_backend\Redis\redis-cli.exe" set "REDIS_CLI=%ROOT%syn_backend\Redis\redis-cli.exe"
+if exist "D:\Redis\Redis-x64-5.0.14.1\redis-cli.exe" set "REDIS_CLI=D:\Redis\Redis-x64-5.0.14.1\redis-cli.exe"
 
 echo ============================================
 echo   SynapseAutomation Celery Worker (synenv)

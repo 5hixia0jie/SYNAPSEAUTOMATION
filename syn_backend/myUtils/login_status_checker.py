@@ -39,7 +39,7 @@ class LoginStatusChecker:
         self.rotation_index = 0
 
         # Playwright Worker URL
-        self.worker_url = "http://127.0.0.1:7001"
+        self.worker_url = "http://127.0.0.1:7002"
 
     def _ensure_login_status_column(self):
         """确保 login_status 字段存在"""

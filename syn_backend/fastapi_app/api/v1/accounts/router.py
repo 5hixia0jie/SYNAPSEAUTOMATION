@@ -380,27 +380,6 @@ async def update_account(account_id: str, update_data: AccountUpdate):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.delete("/{account_id}", response_model=StatusResponse)
-async def delete_account(account_id: str):
-    """
-    删除账号
-
-    - **account_id**: 账号ID
-    - 会同时删除Cookie文件
-    """
-    try:
-        result = await account_service.delete_account(account_id)
-        return StatusResponse(**result)
-    except NotFoundException as e:
-        raise HTTPException(status_code=404, detail=str(e))
-    except Exception as e:
-        logger.error(f"删除账号失败: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-
-
-
 # DISABLED: deep-sync 会导致账号数据混乱，已禁用
 # @router.post("/deep-sync", response_model=DeepSyncResponse)
 # async def deep_sync_accounts():
@@ -433,6 +412,24 @@ async def delete_invalid_accounts():
         return StatusResponse(**result)
     except Exception as e:
         logger.error(f"删除失效账号失败: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.delete("/{account_id}", response_model=StatusResponse)
+async def delete_account(account_id: str):
+    """
+    删除账号
+
+    - **account_id**: 账号ID
+    - 会同时删除Cookie文件
+    """
+    try:
+        result = await account_service.delete_account(account_id)
+        return StatusResponse(**result)
+    except NotFoundException as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        logger.error(f"删除账号失败: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

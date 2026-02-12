@@ -25,27 +25,40 @@ async def check_login_status(request: LoginStatusCheckRequest):
     - 如果不提供,则使用轮询策略检查下一批账号
     """
     try:
+        # 测试网络连接
+        logger.info(f"[CreatorAPI] 测试网络连接: http://127.0.0.1:7002/health")
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            health_response = await client.get("http://127.0.0.1:7002/health")
+            logger.info(f"[CreatorAPI] Health 检查响应状态码: {health_response.status_code}")
+            logger.info(f"[CreatorAPI] Health 检查响应内容: {health_response.text}")
+
         # 调用 Playwright Worker API
+        logger.info(f"[CreatorAPI] 开始调用 Worker 服务: http://127.0.0.1:7002/creator/check-login-status")
+        logger.info(f"[CreatorAPI] 请求参数: {request.dict()}")
+        
         async with httpx.AsyncClient(timeout=120.0) as client:
             response = await client.post(
-                "http://127.0.0.1:7001/creator/check-login-status",
+                "http://127.0.0.1:7002/creator/check-login-status",
                 json=request.dict()
             )
+            
+        logger.info(f"[CreatorAPI] Worker 服务响应状态码: {response.status_code}")
+        logger.info(f"[CreatorAPI] Worker 服务响应内容: {response.text}")
 
-            if response.status_code != 200:
-                try:
-                    error_data = response.json()
-                    error_detail = error_data.get("error") or error_data.get("detail") or response.text
-                except Exception:
-                    error_detail = response.text or f"HTTP {response.status_code}"
+        if response.status_code != 200:
+            try:
+                error_data = response.json()
+                error_detail = error_data.get("error") or error_data.get("detail") or response.text
+            except Exception:
+                error_detail = response.text or f"HTTP {response.status_code}"
 
-                logger.error(f"[CreatorAPI] Worker返回错误 {response.status_code}: {error_detail}")
-                raise HTTPException(
-                    status_code=response.status_code,
-                    detail=error_detail
-                )
+            logger.error(f"[CreatorAPI] Worker返回错误 {response.status_code}: {error_detail}")
+            raise HTTPException(
+                status_code=response.status_code,
+                detail=error_detail
+            )
 
-            return response.json()
+        return response.json()
 
     except httpx.ConnectError as e:
         logger.error(f"[CreatorAPI] 无法连接到 Playwright Worker: {e}")

@@ -127,3 +127,9 @@ syn_backend/cookiesFile/*
 syn_backend/fingerprints/*
 
 LaunchScript/python-3.11.9-embed-amd64.zip
+
+
+browsers/chromium
+browsers/firefox
+ffmpeg-8.0.1-essentials_build
+ffmpeg.zip

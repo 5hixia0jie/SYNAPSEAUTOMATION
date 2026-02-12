@@ -849,6 +849,29 @@ function AccountPageContent() {
               onClick={async () => {
                 setIsStatusChecking(true)
                 try {
+                  // 检查后端服务状态
+                  const checkBackendStatus = async () => {
+                    try {
+                      const res = await fetch(`/api/v1/dashboard`, {
+                        timeout: 3000
+                      })
+                      return res.ok
+                    } catch (error) {
+                      return false
+                    }
+                  }
+
+                  const backendStatus = await checkBackendStatus()
+                  if (!backendStatus) {
+                    toast({
+                      variant: "destructive",
+                      title: "后端服务未运行",
+                      description: "请确保后端服务已启动"
+                    })
+                    setIsStatusChecking(false)
+                    return
+                  }
+
                   // 高并发检测所有账号：收集所有账号ID，传给Worker一次性检查
                   const allAccountIds = accounts.map(acc => acc.id)
                   if (allAccountIds.length === 0) {
@@ -856,29 +879,46 @@ function AccountPageContent() {
                     return
                   }
 
-                  const res = await fetch(`/api/v1/creator/check-login-status`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ account_ids: allAccountIds })  // 传入所有账号ID
-                  })
-                  const json = await res.json()
-                  if (json.success) {
-                    // 强制刷新账号列表
-                    await queryClient.invalidateQueries({ queryKey: ["accounts"] })
-                    await refetch()
-
-                    const logged_in = json.logged_in || 0
-                    const session_expired = json.session_expired || 0
-                    const errors = json.errors || 0
-
-                    toast({
-                      variant: "success",
-                      title: "检测完成",
-                      // description: `在线=${logged_in}, 掉线=${session_expired}, 错误=${errors}`
-                    })
-                  } else {
-                    throw new Error(json.message || "检测失败")
+                  // 限制并发检查数量
+                  const BATCH_SIZE = 10
+                  const batches = []
+                  for (let i = 0; i < allAccountIds.length; i += BATCH_SIZE) {
+                    batches.push(allAccountIds.slice(i, i + BATCH_SIZE))
                   }
+
+                  let totalStats = { logged_in: 0, session_expired: 0, errors: 0 }
+
+                  for (const batch of batches) {
+                    const res = await fetch(`/api/v1/creator/check-login-status`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ account_ids: batch })
+                    })
+
+                    if (!res.ok) {
+                      const errorText = await res.text()
+                      throw new Error(errorText || `HTTP ${res.status}`)
+                    }
+
+                    const json = await res.json()
+                    if (json.success) {
+                      totalStats.logged_in += json.logged_in || 0
+                      totalStats.session_expired += json.session_expired || 0
+                      totalStats.errors += json.errors || 0
+                    } else {
+                      throw new Error(json.message || "检测失败")
+                    }
+                  }
+
+                  // 强制刷新账号列表
+                  await queryClient.invalidateQueries({ queryKey: ["accounts"] })
+                  await refetch()
+
+                  toast({
+                    variant: "success",
+                    title: "检测完成",
+                    description: `在线=${totalStats.logged_in}, 掉线=${totalStats.session_expired}, 错误=${totalStats.errors}`
+                  })
                 } catch (e) {
                   toast({ variant: "destructive", title: "检测失败", description: String(e) })
                 } finally {

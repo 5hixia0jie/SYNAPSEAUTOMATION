@@ -98,7 +98,7 @@ async def check_config():
         # 检查 Playwright Worker（浏览器自动化已进程级解耦）
         try:
             import httpx
-            resp = httpx.get("http://127.0.0.1:7001/health", timeout=3.0)
+            resp = httpx.get("http://127.0.0.1:7002/health", timeout=3.0)
             resp.raise_for_status()
             browser_ok = resp.json().get("status") == "ok"
         except Exception:
@@ -254,7 +254,7 @@ async def system_health_check():
         # 检查浏览器（通过 Playwright Worker）
         try:
             import httpx
-            resp = httpx.get("http://127.0.0.1:7001/health", timeout=3.0)
+            resp = httpx.get("http://127.0.0.1:7002/health", timeout=3.0)
             resp.raise_for_status()
             health_status["browser"] = "healthy" if resp.json().get("status") == "ok" else "unhealthy"
         except Exception:
@@ -298,7 +298,7 @@ async def playwright_worker_health():
         import httpx
 
         async with httpx.AsyncClient(timeout=5.0) as client:
-            resp = await client.get("http://127.0.0.1:7001/health")
+            resp = await client.get("http://127.0.0.1:7002/health")
             resp.raise_for_status()
             return resp.json()
     except Exception as e:
@@ -310,13 +310,13 @@ async def playwright_worker_debug_playwright(headless: bool = True):
     """
     代理 Worker 的 /debug/playwright（用于定位 Playwright/浏览器环境问题）。
 
-    说明：Worker 需要已启动在 7001 端口。
+    说明：Worker 需要已启动在 7002 端口。
     """
     try:
         import httpx
 
         async with httpx.AsyncClient(timeout=30.0) as client:
-            resp = await client.get("http://127.0.0.1:7001/debug/playwright", params={"headless": headless})
+            resp = await client.get("http://127.0.0.1:7002/debug/playwright", params={"headless": headless})
             if resp.status_code >= 400:
                 # 尽量透传 Worker 的报错
                 try:
@@ -517,7 +517,7 @@ async def run_self_check():
         # 检查 Playwright Worker
         try:
             import httpx
-            resp = httpx.get("http://127.0.0.1:7001/health", timeout=3.0)
+            resp = httpx.get("http://127.0.0.1:7002/health", timeout=3.0)
             if resp.status_code != 200:
                 issues.append("Playwright Worker 不可用")
         except Exception:

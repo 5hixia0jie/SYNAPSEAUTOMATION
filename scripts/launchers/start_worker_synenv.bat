@@ -39,14 +39,14 @@ if not defined ENABLE_SELENIUM_DEBUG set "ENABLE_SELENIUM_DEBUG=1"
 if not defined PLAYWRIGHT_AUTO_INSTALL set "PLAYWRIGHT_AUTO_INSTALL=0"
 
 REM Kill existing Worker (more reliable than parsing netstat)
-powershell -NoProfile -Command "Get-NetTCPConnection -LocalPort 7001 -State Listen -ErrorAction SilentlyContinue | ForEach-Object { try { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue } catch {} }"
+powershell -NoProfile -Command "Get-NetTCPConnection -LocalPort 7002 -State Listen -ErrorAction SilentlyContinue | ForEach-Object { try { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue } catch {} }"
 timeout /t 2 /nobreak >nul
 
 pushd "%BACKEND_DIR%"
 
 echo Starting Playwright Worker...
-echo   - Port: 7001
-echo   - Health: http://localhost:7001/health
+echo   - Port: 7002
+echo   - Health: http://localhost:7002/health
 echo.
 
 %PY% playwright_worker\worker.py

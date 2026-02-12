@@ -1,18 +1,28 @@
 {
-  "updated_at": "2026-01-19T03:30:02.684095",
+  "updated_at": "2026-02-12T01:43:02.924549",
   "accounts": [
     {
-      "account_id": "account_1768550520396",
+      "account_id": "\u77f3\u5c0f\u6770",
+      "platform": "bilibili",
+      "user_id": null
+    },
+    {
+      "account_id": "account_1770792341989",
       "platform": "channels",
       "user_id": null
     },
     {
-      "account_id": "account_1768550564905",
+      "account_id": "account_1770792280605",
+      "platform": "douyin",
+      "user_id": null
+    },
+    {
+      "account_id": "account_1770792215277",
       "platform": "kuaishou",
       "user_id": null
     },
     {
-      "account_id": "account_1768550657442",
+      "account_id": "account_1770792373028",
       "platform": "xiaohongshu",
       "user_id": null
     }

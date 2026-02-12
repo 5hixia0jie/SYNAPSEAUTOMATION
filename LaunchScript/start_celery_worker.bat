@@ -25,14 +25,15 @@ if errorlevel 1 (
 echo OK: Activated environment syn
 echo.
 
-%REDIS_CLI% ping >nul 2>&1
+%REDIS_CLI% -a 123456 ping >nul 2>&1
 if errorlevel 1 (
-    echo ERROR: Redis not running
+    echo ERROR: Redis not running or authentication failed
     echo Please start Redis first: redis-server
+    echo Make sure Redis password is set to 123456
     pause
     exit /b 1
 )
-echo OK: Redis is running
+echo OK: Redis is running and authenticated
 echo.
 
 cd /d %BACKEND_DIR%
