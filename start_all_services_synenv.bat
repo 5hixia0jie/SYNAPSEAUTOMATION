@@ -73,7 +73,12 @@ echo.
 echo [6] 启动 Telegram 机器人...
 echo 提示: 请确保已设置 TELEGRAM_BOT_TOKEN 环境变量
 echo 如需设置，请在系统环境变量中添加: TELEGRAM_BOT_TOKEN=your_bot_token
-start "Telegram Bot" "%~dp0scripts\launchers\start_telegram_bot.bat"
+REM 检查当前 shell 类型，如果是 PowerShell，则使用 PowerShell 脚本
+if "%SHELL%"=="powershell" (
+    start "Telegram Bot" powershell -ExecutionPolicy Bypass -File "%~dp0scripts\launchers\Start-TelegramBot.ps1"
+) else (
+    start "Telegram Bot" "%~dp0scripts\launchers\start_telegram_bot.bat"
+)
 
 echo.
 echo ============================================

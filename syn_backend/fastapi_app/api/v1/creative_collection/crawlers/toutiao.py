@@ -123,6 +123,10 @@ class ToutiaoCrawler(BaseCrawler):
                             # 等待额外的时间确保页面完全加载
                             page.wait_for_timeout(2000)  # 等待2秒
                             
+                            logger.info(f"头条视频页面加载完成: {page.url}")
+
+                            true_url = page.url
+
                             # 提取视频信息
                             title = self._extract_title_sync(page)
                             tags = self._extract_tags_sync(page)
@@ -149,7 +153,7 @@ class ToutiaoCrawler(BaseCrawler):
                                 "title": title,
                                 "tags": tags,
                                 "cover_url": cover_url,
-                                "video_url": video_url,
+                                "video_url": true_url,
                                 "subtitle": subtitle
                             }
                             
