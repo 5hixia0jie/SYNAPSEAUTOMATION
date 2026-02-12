@@ -118,7 +118,9 @@ async def get_file(
     """
     try:
         raw = (filename or "").strip()
-        file_path = Path(raw)
+        # 处理路径分隔符，确保使用正确的分隔符
+        normalized_path = raw.replace('/', '\\')
+        file_path = Path(normalized_path)
         target_file = None
         
         # 1. 尝试绝对路径
@@ -127,6 +129,8 @@ async def get_file(
         else:
             # 2. 尝试在 VIDEO_FILES_DIR 中查找（支持子路径，如 "covers/xxx.png"）
             video_dir = Path(settings.VIDEO_FILES_DIR)
+            logger.debug(f"Searching in video_dir: {video_dir}")
+            logger.debug(f"Looking for file: {normalized_path}")
 
             # 2.1 Windows 绝对路径（如 D:\...\videoFile\xxx.mp4）在 Linux/WSL 下不被识别为 absolute
             if not target_file and raw and _is_windows_absolute_path(raw):
@@ -134,19 +138,41 @@ async def get_file(
                 if mapped:
                     target_file = mapped
 
+            # 2.2 直接使用 normalized_path 构建路径
             try:
-                candidate = (video_dir / file_path).resolve()
-                if str(candidate).startswith(str(video_dir.resolve())) and candidate.exists():
-                    target_file = candidate
-            except Exception:
+                candidate = video_dir / normalized_path
+                logger.debug(f"Checking candidate: {candidate}")
+                if candidate.exists():
+                    # 验证路径是否在 video_dir 内
+                    candidate_resolved = candidate.resolve()
+                    video_dir_resolved = video_dir.resolve()
+                    if str(candidate_resolved).startswith(str(video_dir_resolved)):
+                        target_file = candidate
+                        logger.debug(f"Found file: {target_file}")
+            except Exception as e:
+                logger.error(f"Error checking candidate: {e}")
                 target_file = None
+
+            # 2.3 尝试使用 Path 拼接（原有逻辑）
+            if not target_file:
+                try:
+                    candidate = (video_dir / file_path).resolve()
+                    logger.debug(f"Checking Path candidate: {candidate}")
+                    if str(candidate).startswith(str(video_dir.resolve())) and candidate.exists():
+                        target_file = candidate
+                        logger.debug(f"Found file with Path: {target_file}")
+                except Exception as e:
+                    logger.error(f"Error with Path candidate: {e}")
+                    target_file = None
 
             # 3. 兼容旧逻辑：仅按文件名查找
             if not target_file:
                 possible_file = video_dir / file_path.name
+                logger.debug(f"Checking by filename: {possible_file}")
                 if possible_file.exists():
                     target_file = possible_file
-        
+                    logger.debug(f"Found file by filename: {target_file}")
+
         if not target_file:
             logger.warning(f"文件不存在: {raw}")
             return JSONResponse(

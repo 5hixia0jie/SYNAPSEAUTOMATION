@@ -33,6 +33,7 @@ from .creator.router import router as creator_router
 from .mediacrawler.router import router as mediacrawler_router
 from .crawler.router import router as crawler_router
 from .tikhub.router import router as tikhub_router
+from .creative_collection.router import router as creative_collection_router
 
 # 导入平台路由
 from .platforms.douyin.router import router as douyin_router
@@ -75,6 +76,7 @@ api_router.include_router(creator_router)  # router 已自带 /creator 前缀
 api_router.include_router(mediacrawler_router)  # /mediacrawler
 api_router.include_router(crawler_router, prefix="/crawler", tags=["混合爬虫"])  # /crawler
 api_router.include_router(tikhub_router)  # router 已自带 /tikhub 前缀
+api_router.include_router(creative_collection_router, tags=["创意采集"])  # router 已自带 /creative-collection 前缀
 
 # 注册平台路由
 api_router.include_router(douyin_router)  # router 已自带 /platforms/douyin 前缀

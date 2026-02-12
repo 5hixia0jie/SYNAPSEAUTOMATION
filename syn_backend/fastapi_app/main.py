@@ -2,7 +2,18 @@
 FastAPI 主应用入口
 """
 import os
+import sys
 import asyncio
+
+# Windows: Ensure ProactorEventLoopPolicy for asyncio subprocess support.
+# (Playwright needs subprocess to launch browser processes.)
+# 必须在所有其他导入和初始化之前设置
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    # 强制创建一个新的事件循环，确保使用正确的策略
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
 # Force Playwright to use global browsers BEFORE any imports
 # os.environ['PLAYWRIGHT_BROWSERS_PATH'] = '0'
 
@@ -12,13 +23,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from datetime import datetime
 from pathlib import Path
-import sys
 import shutil
-
-# Windows: Ensure ProactorEventLoopPolicy for asyncio subprocess support.
-# (Playwright needs subprocess to launch browser processes.)
-if sys.platform == "win32":
-    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 # 添加父目录到路径以导入现有模块
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -86,6 +91,10 @@ upload_dir.mkdir(parents=True, exist_ok=True)
 
 # 挂载静态文件目录
 app.mount("/uploads", StaticFiles(directory=str(upload_dir)), name="uploads")
+
+# 导入并注册文件服务路由
+from .api.file_service import router as file_service_router
+app.include_router(file_service_router)
 
 # Optional: mount Douyin_TikTok_API under a prefix.
 if settings.DOUYIN_TIKTOK_API_ENABLED:

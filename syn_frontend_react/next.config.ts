@@ -119,6 +119,10 @@ const nextConfig: NextConfig = {
         destination: `${resolvedBackendUrl}/getFiles`,
       },
       {
+        source: "/getFile",
+        destination: `${resolvedBackendUrl}/getFile`,
+      },
+      {
         source: "/getValidAccounts",
         destination: `${resolvedBackendUrl}/getValidAccounts`,
       },

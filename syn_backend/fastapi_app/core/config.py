@@ -104,6 +104,12 @@ class Settings(BaseSettings):
     BROWSER_PROFILES_DIR: str = str(Path(DATA_DIR) / "browser_profiles")
     VIDEO_FILES_DIR: str = str(BASE_DIR / "videoFile")
     UPLOAD_DIR: str = str(BASE_DIR / "uploads")
+    
+    # 兼容实际存储位置
+    if not Path(VIDEO_FILES_DIR).exists() and Path(BASE_DIR).parent.exists():
+        parent_video_dir = Path(BASE_DIR).parent / "videoFile"
+        if parent_video_dir.exists():
+            VIDEO_FILES_DIR = str(parent_video_dir)
 
     # 任务队列配置
     TASK_QUEUE_MAX_WORKERS: int = 3  # 并发任务数（降低资源占用）

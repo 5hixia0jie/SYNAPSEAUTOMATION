@@ -1,0 +1,734 @@
+{
+  "75c88494-7b26-478f-b6fe-f10c8c34c59a": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T11:47:10.555476",
+    "error": ""
+  },
+  "657a8a4f-994d-4301-a76b-264b928ca6d6": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T11:53:03.285326",
+    "error": ""
+  },
+  "360d85d4-f425-485d-a922-927735132017": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T11:55:48.328756",
+    "error": "Cannot run the event loop while another loop is running"
+  },
+  "f73c3b2f-0c51-438a-aeb2-4f2ac939f81c": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T11:58:05.314093",
+    "error": ""
+  },
+  "37946314-f5b0-485e-8529-ba1cefbdcec8": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T11:58:53.155908",
+    "error": ""
+  },
+  "bd28d94f-b89a-4529-b1f1-0dc2658b02b9": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:00:24.184486",
+    "error": "BrowserType.launch: Executable doesn't exist at D:\\traeProject\\SYNAPSEAUTOMATION\\syn_backend\\browsers\\chromium-1117\\chrome-win\\chrome.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+  },
+  "68b4d1a4-56de-4fce-a7ca-f39af4016e7a": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:00:58.619635",
+    "error": "BrowserType.launch: Executable doesn't exist at D:\\traeProject\\SYNAPSEAUTOMATION\\syn_backend\\browsers\\chromium-1117\\chrome-win\\chrome.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+  },
+  "7f495fb6-f2c9-4db2-85f9-7999de080696": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:01:25.484975",
+    "error": "BrowserType.launch: Executable doesn't exist at D:\\traeProject\\SYNAPSEAUTOMATION\\syn_backend\\browsers\\chromium-1117\\chrome-win\\chrome.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     playwright install                                     ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+  },
+  "7e65baa7-20dc-4c1a-8099-bd27ff4a47bf": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:02:19.593530",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\nnavigating to \"https://m.toutiao.com/is/yUQq2dpR7d0/\", waiting until \"networkidle\"\n"
+  },
+  "db0dd02b-db09-4607-90ea-490173f23ee5": {
+    "status": "failed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:03:57.712435",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\nnavigating to \"https://m.toutiao.com/is/yUQq2dpR7d0/\", waiting until \"networkidle\"\n"
+  },
+  "7f19de21-f148-4bd4-b6b9-9c272a8eca9a": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:05:35.613204",
+    "data": {
+      "id": 1,
+      "title": "展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "//v6-web.toutiaovod.com/59bc05b262a5b6f9275c0672ed2114a4/698d5fd3/video/tos/cn/tos-cn-ve-0eace5/owZIAIigDMeQTUGeHmwDejchxwrGiCLvaqtBlQ/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2072&bt=2072&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoMxWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aWkzZGk3NTRoOGRpNjhpZEBpM3J2ZXI5cjhrOTUzNDM8M0AyLS4uNjUxNTQxYDRhNWMwYSNgZDBpMmRzZzBhLS1kLmFzcw%3D%3D&btag=40000e00020000&dy_q=1770869137&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202602121205377667B6989B93476F24D6",
+      "script": "# 拍摄脚本\n\n## 基本信息\n- 标题：展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦\n- 风格：现代\n- 时长：1-3分钟\n\n## 开场\n- 镜头：全景\n- 画面：展示主要场景\n- 台词：大家好，欢迎观看本期视频\n- BGM：轻快的背景音乐\n\n## 主体部分\n- 镜头1：中景\n- 画面：主要内容展示\n- 台词：[根据视频内容填写]\n- 时长：30秒\n\n- 镜头2：近景\n- 画面：细节展示\n- 台词：[根据视频内容填写]\n- 时长：30秒\n\n## 结尾\n- 镜头：全景\n- 画面：总结场景\n- 台词：感谢观看，我们下期再见\n- BGM：渐弱的背景音乐\n\n## 拍摄建议\n- 确保光线充足\n- 保持画面稳定\n- 注意声音清晰\n- 根据实际场景调整镜头",
+      "source_platform": "头条",
+      "status": "success",
+      "error_message": null,
+      "created_at": "2026-02-12T12:05:40.478447",
+      "updated_at": "2026-02-12T12:05:40.478447"
+    }
+  },
+  "3eee71e6-6d8a-4582-9822-876eabd66b63": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:07:33.854877",
+    "data": {
+      "id": 1,
+      "title": "展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "//v26-web.toutiaovod.com/7ed3d04092959edbbb1d930af0af6f1c/698d6049/video/tos/cn/tos-cn-ve-0eace5/owZIAIigDMeQTUGeHmwDejchxwrGiCLvaqtBlQ/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2072&bt=2072&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoLpWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aWkzZGk3NTRoOGRpNjhpZEBpM3J2ZXI5cjhrOTUzNDM8M0AyLS4uNjUxNTQxYDRhNWMwYSNgZDBpMmRzZzBhLS1kLmFzcw%3D%3D&btag=c0000e00020000&dy_q=1770869255&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202602121207355FFB4F13BF9D7EB6FEBF",
+      "script": "# 拍摄脚本\n\n## 基本信息\n- 标题：展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦\n- 风格：现代\n- 时长：1-3分钟\n\n## 开场\n- 镜头：全景\n- 画面：展示主要场景\n- 台词：大家好，欢迎观看本期视频\n- BGM：轻快的背景音乐\n\n## 主体部分\n- 镜头1：中景\n- 画面：主要内容展示\n- 台词：[根据视频内容填写]\n- 时长：30秒\n\n- 镜头2：近景\n- 画面：细节展示\n- 台词：[根据视频内容填写]\n- 时长：30秒\n\n## 结尾\n- 镜头：全景\n- 画面：总结场景\n- 台词：感谢观看，我们下期再见\n- BGM：渐弱的背景音乐\n\n## 拍摄建议\n- 确保光线充足\n- 保持画面稳定\n- 注意声音清晰\n- 根据实际场景调整镜头",
+      "source_platform": "头条",
+      "status": "success",
+      "error_message": null,
+      "created_at": "2026-02-12T12:07:38.489674",
+      "updated_at": "2026-02-12T12:07:38.489674"
+    }
+  },
+  "1899a451-80a5-4914-a72d-4e3d88d16ea7": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/79TSx6Nrif8/",
+    "created_at": "2026-02-12T12:21:28.604389",
+    "data": {
+      "title": "展开\n舅舅用套路给外甥发压岁钱，没想到被反拿捏，娃：你当我三岁小孩吗",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "//v9-web.toutiaovod.com/9aaaebaaaf326dae7f824489a27416e7/698d6371/video/tos/cn/tos-cn-ve-15/oIEeVH9AQAAfTIcNgpRghkFrNBFC0QhDqTTLPm/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=1265&bt=1265&cs=0&ds=3&ft=twOWrJLxBBkq8ZmouhWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=Zjg3NGk6aTo7ZTZmZmZpO0Bpamd2NWs5cjZkOTMzNDlpM0BiLjEzLTZjNjYxMzMzMWAyYSNecS1fMmRzLjBhLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770870090&feature_id=fea919893f650a8c49286568590446ef&l=202602121221307FEA67925ABDFA970C15",
+      "subtitle": ""
+    }
+  },
+  "2bb22952-d2f4-4a00-b2e7-86f6a05a6334": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/79TSx6Nrif8/",
+    "created_at": "2026-02-12T12:27:35.700854",
+    "data": {
+      "title": "展开\n舅舅用套路给外甥发压岁钱，没想到被反拿捏，娃：你当我三岁小孩吗",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "//v9-web.toutiaovod.com/b39beb442a1c6ae8f6b60e0751bdb4fa/698d64e0/video/tos/cn/tos-cn-ve-15/oIEeVH9AQAAfTIcNgpRghkFrNBFC0QhDqTTLPm/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=1265&bt=1265&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoDYWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=Zjg3NGk6aTo7ZTZmZmZpO0Bpamd2NWs5cjZkOTMzNDlpM0BiLjEzLTZjNjYxMzMzMWAyYSNecS1fMmRzLjBhLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770870457&feature_id=fea919893f650a8c49286568590446ef&l=202602121227378A1D58BD540D5589CFAA",
+      "subtitle": ""
+    }
+  },
+  "14adf42a-dfd3-413e-84b3-e2f4047272cb": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:36:54.542287",
+    "data": {
+      "title": "展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦",
+      "tags": [],
+      "cover_url": "/uploads/creative_collection\\展开2月6日江苏当人类幼崽误入高端杀乳猪盘爸爸仅凭6张图片赢下女儿一盘草莓网友终于理解那句你还没有被.jpg",
+      "video_url": "//v6-web.toutiaovod.com/84f14b5c1060edfbc41aecb6a4a880ef/698d672a/video/tos/cn/tos-cn-ve-0eace5/owZIAIigDMeQTUGeHmwDejchxwrGiCLvaqtBlQ/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2072&bt=2072&cs=0&ds=3&ft=twOWrJLxBBkq8ZmokTWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aWkzZGk3NTRoOGRpNjhpZEBpM3J2ZXI5cjhrOTUzNDM8M0AyLS4uNjUxNTQxYDRhNWMwYSNgZDBpMmRzZzBhLS1kLmFzcw%3D%3D&btag=c0000e00020000&dy_q=1770871016&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202602121236559C13A113A651651CA2D9",
+      "subtitle": ""
+    }
+  },
+  "3a254c0c-4914-4ce2-a598-bd6ecc133f38": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T12:42:02.159367",
+    "data": {
+      "title": "展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦",
+      "tags": [],
+      "cover_url": "/uploads/creative_collection\\展开2月6日江苏当人类幼崽误入高端杀乳猪盘爸爸仅凭6张图片赢下女儿一盘草莓网友终于理解那句你还没有被.jpg",
+      "video_url": "//v9-web.toutiaovod.com/a8fa7efb8038fe94a0f4693af4ac2deb/698d685d/video/tos/cn/tos-cn-ve-0eace5/owZIAIigDMeQTUGeHmwDejchxwrGiCLvaqtBlQ/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2072&bt=2072&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoxaWWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aWkzZGk3NTRoOGRpNjhpZEBpM3J2ZXI5cjhrOTUzNDM8M0AyLS4uNjUxNTQxYDRhNWMwYSNgZDBpMmRzZzBhLS1kLmFzcw%3D%3D&btag=c0000e00020000&dy_q=1770871323&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=2026021212420365317DC90E8B2AAFF826",
+      "subtitle": ""
+    }
+  },
+  "b10d2933-c395-41b3-8520-3caa2d78254d": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/ie1oNqK8/",
+    "created_at": "2026-02-12T12:52:49.376361",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770871975.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "323e4892-13b9-44b1-bcde-2ca0d12d8ae0": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T12:54:42.405188",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770872087.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "a5dcb7ef-2176-41e9-876e-8f758aef94b8": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://www.douyin.com/video/7599589012797548729",
+    "created_at": "2026-02-12T12:56:11.029586",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "73f81e31-0383-43b7-965e-3375e3930fd3": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T12:58:46.054214",
+    "data": {
+      "title": "中国有句古话叫做识时务者为俊杰#没危险的时候爸爸就是最大的危险 #爸爸带娃 #人类幼崽#骗你生女儿系列",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "https://v26-web.douyinvod.com/4a8aafa29efbf9ebe08bf8762fdafcde/698d885b/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=80000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100x_100z_100o_100w_100B&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770872338&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKFqccnRkaCjP9_ejVhWL6&l=20260212125858320F601539DE325BDED2&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "8015c531-d285-4075-9b89-5a9f46460b1d": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:03:39.974345",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770872625.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "ffb0eacc-7250-47ab-946b-9c617f41c775": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:06:44.026940",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "a432daa9-0476-4951-938b-6e085082afcc": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:10:42.017776",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770873047.jpg",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "a358b331-510e-40db-bf52-597634ed1b2e": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:13:33.135299",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770873217.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "47d0a572-70b5-4773-bd40-bc7bd567ab1d": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/IyXwdl6GL3g/",
+    "created_at": "2026-02-12T13:19:40.308030",
+    "data": {
+      "title": "展开\n孩子不愿穿罩衣，外婆一招“杀鸡儆猴”成功说服，网友：全网第一个棍子抽出音爆声的",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开孩子不愿穿罩衣外婆一招杀鸡儆猴成功说服网友全网第一个棍子抽出音爆声的.jpg",
+      "video_url": "//v26-web.toutiaovod.com/e2278dc10e618c26c61d87a1fced814d/698d711a/video/tos/cn/tos-cn-ve-15/ogmtWcAKvBgWQ1PmIFiarXtQiQY4AHYTEtYII/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=2312&cs=0&ds=3&ft=twOWrJLxBBkq8ZmowfrWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aTdlZDZnO2dkaDhkZmg5ZEBpM21wdHI5cnRzOTMzNDlpM0AxNmIxYzVfNWIxLTZfYzJeYSNyZ2lmMmRjZC9hLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770873581&feature_id=fea919893f650a8c49286568590446ef&l=20260212131941EF143C960D6C6F1282E7",
+      "subtitle": ""
+    }
+  },
+  "f2d8d06a-6cec-4af3-9b54-e7fe379a08b6": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/IyXwdl6GL3g/",
+    "created_at": "2026-02-12T13:24:17.132672",
+    "data": {
+      "title": "展开\n孩子不愿穿罩衣，外婆一招“杀鸡儆猴”成功说服，网友：全网第一个棍子抽出音爆声的",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开孩子不愿穿罩衣外婆一招杀鸡儆猴成功说服网友全网第一个棍子抽出音爆声的.jpg",
+      "video_url": "//v6-web.toutiaovod.com/75e172184a6f106c5b80eb47623696f9/698d722f/video/tos/cn/tos-cn-ve-15/ogmtWcAKvBgWQ1PmIFiarXtQiQY4AHYTEtYII/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=2312&cs=0&ds=3&ft=twOWrJLxBBkq8ZmooWrWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aTdlZDZnO2dkaDhkZmg5ZEBpM21wdHI5cnRzOTMzNDlpM0AxNmIxYzVfNWIxLTZfYzJeYSNyZ2lmMmRjZC9hLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770873858&feature_id=fea919893f650a8c49286568590446ef&l=20260212132418E6660CDA68B13AB5EEF7",
+      "subtitle": ""
+    }
+  },
+  "9f7dd863-3a74-470f-bba8-38efec9ded7c": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/IyXwdl6GL3g/",
+    "created_at": "2026-02-12T13:27:32.369226",
+    "data": {
+      "title": "展开\n孩子不愿穿罩衣，外婆一招“杀鸡儆猴”成功说服，网友：全网第一个棍子抽出音爆声的",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开孩子不愿穿罩衣外婆一招杀鸡儆猴成功说服网友全网第一个棍子抽出音爆声的.jpg",
+      "video_url": "//v6-web.toutiaovod.com/d0f1d39b8265a0a3a60224884948480d/698d72f3/video/tos/cn/tos-cn-ve-15/ogmtWcAKvBgWQ1PmIFiarXtQiQY4AHYTEtYII/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=2312&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoUGrWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aTdlZDZnO2dkaDhkZmg5ZEBpM21wdHI5cnRzOTMzNDlpM0AxNmIxYzVfNWIxLTZfYzJeYSNyZ2lmMmRjZC9hLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770874054&feature_id=fea919893f650a8c49286568590446ef&l=2026021213273451A7F2BEAA1394780C40",
+      "subtitle": ""
+    }
+  },
+  "83cbe573-561e-4704-9b95-a3166365564d": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/IyXwdl6GL3g/",
+    "created_at": "2026-02-12T13:40:02.769592",
+    "data": {
+      "title": "展开\n孩子不愿穿罩衣，外婆一招“杀鸡儆猴”成功说服，网友：全网第一个棍子抽出音爆声的",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开孩子不愿穿罩衣外婆一招杀鸡儆猴成功说服网友全网第一个棍子抽出音爆声的.jpg",
+      "video_url": "//v6-web.toutiaovod.com/16ad899ac5221fc01d26b62ca2c05061/698d75e1/video/tos/cn/tos-cn-ve-15/ogmtWcAKvBgWQ1PmIFiarXtQiQY4AHYTEtYII/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=2312&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoaCrWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aTdlZDZnO2dkaDhkZmg5ZEBpM21wdHI5cnRzOTMzNDlpM0AxNmIxYzVfNWIxLTZfYzJeYSNyZ2lmMmRjZC9hLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770874804&feature_id=fea919893f650a8c49286568590446ef&l=202602121340047EAAA35C80E4EAE68747",
+      "subtitle": ""
+    }
+  },
+  "0942cb26-e9ca-49d7-81ae-c129422ddd19": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:40:48.562737",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770874853.jpg",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "efaaa835-2f1c-4bb7-b62f-dd446417279e": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/c2fiWEIl02E/",
+    "created_at": "2026-02-12T13:49:21.225824",
+    "data": {
+      "title": "展开\n要五千八，我只敢赚两块🤣",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开要五千八我只敢赚两块.jpg",
+      "video_url": "//v6-web.toutiaovod.com/3c4de148a77ae46f782a2dd3001e4579/698d7809/video/tos/cn/tos-cn-ve-0eace5/oQgVVAI4F0QELQD04dhii4hpIA5f5CwL6QBvI7/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=780&bt=780&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoQirWU_vjVQWw&mime_type=video_mp4&qs=0&rc=ZDc2NmY7ZDY3aTloZzQzZUBpM2U1eG45cjd1ODUzNDM8M0AzLzVhYV5eXmIxYGIwNDEzYSNwL2NxMmRjbDJhLS1kLi9zcw%3D%3D&btag=c0000e00010000&dy_q=1770875362&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=202602121349222D1F8FC2ED0A0D06B022",
+      "subtitle": ""
+    }
+  },
+  "f222f195-fa83-4c6d-a4f5-bf21174a6c1e": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T13:55:15.285406",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770875720.jpg",
+      "video_url": "https://v26-web.douyinvod.com/43edcb1a02f71ef39176f9f7d6967806/698d9590/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=80000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100o_100w_100B_100x_100z&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770875719&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKjnVcnRkaCjP9_ejVhWL6&l=202602121355192417D152A99A8658B4E2&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "33b288e7-d02c-41b0-870a-79318827338c": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://www.douyin.com/video/7599589012797548729",
+    "created_at": "2026-02-12T14:01:21.308892",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770876086.jpg",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "846633b6-5203-4836-9fbc-f742ffc79f9b": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://www.douyin.com/video/7599589012797548729",
+    "created_at": "2026-02-12T14:02:34.377896",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770876159.jpg",
+      "video_url": "https://v26-web.douyinvod.com/6e1c513b3f51e61d194edc2ab8ca2bfc/698d9747/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=c0000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100z_100o_100w_100B_100x&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770876158&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKo1VcnRkaCjP9_ejVhWL6&l=20260212140238673EAF4F06DFBE5C3222&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "8ac2cb42-e68c-4db7-b746-43d25dff51d2": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/-_QI8_QGF5Q/",
+    "created_at": "2026-02-12T14:09:24.901117",
+    "data": {
+      "title": "展开\n哈哈哈 笑死人不偿命，最后一个最经典🤣🤣🤣#看一遍笑一遍",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开哈哈哈 笑死人不偿命最后一个最经典看一遍笑一遍.jpg",
+      "video_url": "//v9-web.toutiaovod.com/93b38673cda8fae1188955336318c8bf/698d7f86/video/tos/cn/tos-cn-ve-19734/o4Z2oGOEInW0IBg1dKxpsEizQaiQpzWXI9KRP/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=827&bt=827&cs=0&ds=3&ft=WbaUMqBrffPddV~SD12NvAq-antLjrKvQVcnRkaCjP9_ejVhWL6&mime_type=video_mp4&qs=0&rc=OjQ5aTU8NTo5OmhoOWc1OEBpMzwzdm05cmh5ODczNDlnM0BhYzFeMmI2XjQxNDRjLTIuYSNvYW1gMmQ0L2hhLS1kLi9zcw%3D%3D&btag=c0000e00038000&dy_q=1770876566&feature_id=c971272fc3ffbf3302638b781fde9447&l=20260212140926318A5AFAC3AC6BEB2EC3",
+      "subtitle": ""
+    }
+  },
+  "62ad3c9e-6076-449a-9dae-28329b36897f": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/9HiIvsA2DwU/",
+    "created_at": "2026-02-12T14:10:48.959424",
+    "data": {
+      "title": "没见过求人办完事，还把东西再拿走的#爸爸带娃 #人类幼崽的800个心眼子 #人类幼崽越养越上头 #人类幼崽到底多可爱 #骗你生女儿",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/没见过求人办完事还把东西再拿走的爸爸带娃 人类幼崽的800个心眼子 人类幼崽越养越上头 人类幼崽到底.jpg",
+      "video_url": "https://v26-web.douyinvod.com/d5094146b8b9b55a22763e59e61753af/698d998a/video/tos/cn/tos-cn-ve-15c000-ce/owaXGcg2QIYLuDhTSMlD5GeGeI0fck5eAA8LT2/?a=6383&br=1676&bt=1676&btag=80000e00028000&cd=0%7C0%7C0%7C3&ch=26&cquery=100z_100o_100w_100B_100x&cr=3&cs=0&cv=1&dr=0&ds=4&dy_q=1770876680&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrK0RVcnRkaCjP9_ejVhWL6&l=2026021214112006CEFAE7CDAFFB59F3A5&lr=all&mime_type=video_mp4&qs=0&rc=NGhpNDVlaDtlZDc0NjU0aUBpamZxbXE5cmw8ODMzbGkzNUBiLjI2NWBeXjMxMC5eYzE1YSNhMXA0MmRzLnJhLS1kLTRzcw%3D%3D&temp=1&__vid=7601110391083975611",
+      "subtitle": ""
+    }
+  },
+  "980aa76a-0288-450e-894d-7b4d39a6c624": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/rcm1eTZg_BA/",
+    "created_at": "2026-02-12T14:12:58.300153",
+    "data": {
+      "title": "亲子时光笑翻天，萌娃搞笑日常，温馨又逗趣，快乐无极限 #搞笑 #搞笑日常 #亲子互动 #搞笑视频 #老外真会玩",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/亲子时光笑翻天萌娃搞笑日常温馨又逗趣快乐无极限 搞笑 搞笑日常 亲子互动 搞笑视频 老外真会玩.jpg",
+      "video_url": "https://v26-web.douyinvod.com/8b8d7439b62f569667f251b5de463987/698d9a19/video/tos/cn/tos-cn-ve-15/o87yEzJyfABRQUBCA0jwHuEgKie1A2UjJDiIAY/?a=6383&br=2336&bt=2336&btag=80000e00028000&cd=0%7C0%7C0%7C3&ch=26&cquery=100H_100K_100o_100w_100B&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770876782&feature_id=46a7bb47b4fd1280f3d3825bf2b29388&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKGAVcnRkaCjP9_ejVhWL6&l=202602121413022C56E0B5A298DE5D0B56&lr=all&mime_type=video_mp4&qs=1&rc=PDU3ODlkOjg5NzQ3Njc8aUBpM3U7OGw5cjQzeDMzNGkzM0AuXi41Li8yXy8xM18zNGMtYSNgZy5rMmRjNGxgLS1kLTBzcw%3D%3D&temp=1&__vid=7471477774331563273",
+      "subtitle": ""
+    }
+  },
+  "b5cf3bd9-6a68-49ab-a83f-e105677ff5de": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T14:14:03.500289",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770876848.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "f7980c4c-8a8e-488f-af6d-90fffe5e596c": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T14:15:04.756724",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770876909.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "66a1cae0-41c8-4e42-b2c5-dd3955fabdc6": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T14:15:45.630950",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770876949.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "86fbe670-acf6-414d-9d39-f556ebd272d8": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://www.douyin.com/video/7605795535257298289",
+    "created_at": "2026-02-12T14:17:01.413186",
+    "data": {
+      "title": "发个动态证明我们回村了#回村了就要有回村的样 #遛娃日常",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/发个动态证明我们回村了回村了就要有回村的样 遛娃日常.jpg",
+      "video_url": "https://v26-web.douyinvod.com/1c8f748495f3a2c97acf17443905dfdb/698d9a9f/video/tos/cn/tos-cn-ve-15c000-ce/osa8LMtB7RvAf8Qe68gAqYGTe8YLIJJmCgOw3G/?a=6383&br=1774&bt=1774&btag=80000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100o_100w_100W_100x_100z&cr=3&cs=0&cv=1&dr=0&ds=6&dy_q=1770877025&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKN9ncnRkaCjP9_ejVhWL6&l=202602121417053E4BD7F74092DD564B90&lr=all&mime_type=video_mp4&qs=12&rc=OjQzOjw1NDNlaThmaTZnZ0BpMzVyeHg5cjRtOTMzbGkzNEBfMzIyXjEuNl4xMjAwMC9iYSNvcmhpMmQ0YDNhLS1kLWJzcw%3D%3D&temp=1&__vid=7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "e68ff7fa-4a78-4747-b067-3b56aef19b85": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T14:19:37.558231",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770877182.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "c0dcfaa8-8f76-4fbb-b2cf-080595b68e8f": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T14:25:38.385634",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770877542.jpg",
+      "video_url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/uuu_265.mp4",
+      "subtitle": ""
+    }
+  },
+  "6ce4b279-44d5-4883-8c59-476ed0dfb546": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T14:26:45.084536",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770877609.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "ba996c9b-497b-43c3-bc5e-271602d60c0d": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T14:42:48.020174",
+    "data": {
+      "title": "中国有句古话叫做识时务者为俊杰#没危险的时候爸爸就是最大的危险 #爸爸带娃 #人类幼崽#骗你生女儿系列",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/中国有句古话叫做识时务者为俊杰没危险的时候爸爸就是最大的危险 爸爸带娃 人类幼崽骗你生女儿系列.jpg",
+      "video_url": "https://v26-web.douyinvod.com/8005e93063c0bd151b00f60f499a2579/698da0b5/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=80000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100o_100w_100B_100x_100z&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770878572&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKbfncnRkaCjP9_ejVhWL6&l=20260212144252AB4B880ABD71485E2C10&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "081b94a2-2132-421c-888d-409a69ee8820": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/utHx3X361uw/",
+    "created_at": "2026-02-12T14:50:00.226353",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770879005.jpg",
+      "video_url": "https://www.douyin.com/video/7597769856083589733",
+      "subtitle": ""
+    }
+  },
+  "fd825d8b-3958-4105-bbdf-c5bbb42328d5": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/utHx3X361uw/",
+    "created_at": "2026-02-12T15:00:04.840046",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770879609.jpg",
+      "video_url": "https://www.douyin.com/video/7597769856083589733",
+      "subtitle": ""
+    }
+  },
+  "d041bcdc-ebd2-4eea-ac18-04fbafc145e0": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T15:08:18.032511",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770880102.jpg",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "24278435-e922-4e18-84b8-d452543def71": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T15:10:40.886691",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770880246.jpg",
+      "video_url": "https://v26-web.douyinvod.com/319c7666032058ed72e1a22a2686b5f2/698da73e/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=c0000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100x_100z_100o_100w_100B&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770880245&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKC1ncnRkaCjP9_ejVhWL6&l=20260212151045C99608359752B9616B3D&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "dea628e8-2990-4c03-b390-1c61b9add659": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T15:11:22.835238",
+    "data": {
+      "title": "",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/video_1770880287.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "132274ec-5ed9-400c-a859-99237b81580e": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T15:14:28.660303",
+    "data": {
+      "title": "中国有句古话叫做识时务者为俊杰#没危险的时候爸爸就是最大的危险 #爸爸带娃 #人类幼崽#骗你生女儿系列",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/中国有句古话叫做识时务者为俊杰没危险的时候爸爸就是最大的危险 爸爸带娃 人类幼崽骗你生女儿系列.jpg",
+      "video_url": "https://v26-web.douyinvod.com/0401fcfb968a295a1d29900e220a49c8/698da824/video/tos/cn/tos-cn-ve-15c000-ce/owf9jdEZGEkRJ3ooAVm6KkwIDfAVFEQZoBlpyE/?a=6383&br=1455&bt=1455&btag=c0000e00010000&cd=0%7C0%7C0%7C3&ch=26&cquery=100w_100B_100x_100z_100o&cr=3&cs=0&cv=1&dr=0&ds=3&dy_q=1770880475&feature_id=0ea98fd3bdc3c6c14a3d0804cc272721&ft=pEaFx4hZffPddV~SD12NvAq-antLjrKzoncnRkaCjP9_ejVhWL6&l=20260212151435B5119E5F6C919364ECEF&lr=all&mime_type=video_mp4&qs=1&rc=Ojo8Mzc7ZmgzOGloM2RmN0BpamZnNWs5cmhsODMzbGkzNUBfMDUwLV4wNS4xLTRgYGI1YSNzNWhtMmRrZ29hLS1kLTVzcw%3D%3D&temp=1&__vid=7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "8b1d3af1-494b-4829-9b4e-3a7482ad37d4": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/3hIlwLTUk-M/",
+    "created_at": "2026-02-12T15:16:38.427028",
+    "data": {
+      "title": "发个动态证明我们回村了#回村了就要有回村的样 #遛娃日常",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/发个动态证明我们回村了回村了就要有回村的样 遛娃日常.jpg",
+      "video_url": "https://www.douyin.com/video/7605795535257298289",
+      "subtitle": ""
+    }
+  },
+  "904706e9-46f1-4005-8868-e51231f69ebd": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/hIN4LMJMhpE/",
+    "created_at": "2026-02-12T15:17:16.969600",
+    "data": {
+      "title": "中国有句古话叫做识时务者为俊杰#没危险的时候爸爸就是最大的危险 #爸爸带娃 #人类幼崽#骗你生女儿系列",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/中国有句古话叫做识时务者为俊杰没危险的时候爸爸就是最大的危险 爸爸带娃 人类幼崽骗你生女儿系列.jpg",
+      "video_url": "https://www.douyin.com/video/7599589012797548729",
+      "subtitle": ""
+    }
+  },
+  "e2d1256d-4c5b-4f04-950b-3dcbf44d4d15": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://v.douyin.com/utHx3X361uw/",
+    "created_at": "2026-02-12T15:17:56.170924",
+    "data": {
+      "title": "#抖音玩法合伙人计划 我会认真对待 #抖加小助手 #百亿流量扶持 #快晒出越养越上头的幼崽",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/抖音玩法合伙人计划 我会认真对待 抖加小助手 百亿流量扶持 快晒出越养越上头的幼崽.jpg",
+      "video_url": "https://www.douyin.com/video/7597769856083589733",
+      "subtitle": ""
+    }
+  },
+  "ea589d04-8e64-4a4e-96e1-83defd035cb9": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/yUQq2dpR7d0/",
+    "created_at": "2026-02-12T15:18:13.848312",
+    "data": {
+      "title": "展开\n2月6日，江苏，当人类幼崽误入高端“杀乳猪盘”，爸爸仅凭6张图片，赢下女儿一盘草莓，网友：终于理解那句“你还没有被骗，是因为没遇到专门针对你的骗局”。@无敌小悦悦",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开2月6日江苏当人类幼崽误入高端杀乳猪盘爸爸仅凭6张图片赢下女儿一盘草莓网友终于理解那句你还没有被.jpg",
+      "video_url": "//v9-web.toutiaovod.com/4bf0e7b60d80b09f4057d8a00760bcc3/698d8cf9/video/tos/cn/tos-cn-ve-0eace5/owZIAIigDMeQTUGeHmwDejchxwrGiCLvaqtBlQ/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2072&bt=2072&cs=0&ds=3&ft=twOWrJLxBBkq8ZmolKUWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aWkzZGk3NTRoOGRpNjhpZEBpM3J2ZXI5cjhrOTUzNDM8M0AyLS4uNjUxNTQxYDRhNWMwYSNgZDBpMmRzZzBhLS1kLmFzcw%3D%3D&btag=c0000e00020000&dy_q=1770880695&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=2026021215181509C584628766CD008035",
+      "subtitle": ""
+    }
+  },
+  "6021fed6-2cec-4a83-8a94-f54b2a27ee70": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/IyXwdl6GL3g/",
+    "created_at": "2026-02-12T15:18:24.468137",
+    "data": {
+      "title": "展开\n孩子不愿穿罩衣，外婆一招“杀鸡儆猴”成功说服，网友：全网第一个棍子抽出音爆声的",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开孩子不愿穿罩衣外婆一招杀鸡儆猴成功说服网友全网第一个棍子抽出音爆声的.jpg",
+      "video_url": "//v3-web.toutiaovod.com/48a1be1097b5bdafa079fca7c08a8ba8/698d8cee/video/tos/cn/tos-cn-ve-15/ogmtWcAKvBgWQ1PmIFiarXtQiQY4AHYTEtYII/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=2312&bt=2312&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoKtUWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aTdlZDZnO2dkaDhkZmg5ZEBpM21wdHI5cnRzOTMzNDlpM0AxNmIxYzVfNWIxLTZfYzJeYSNyZ2lmMmRjZC9hLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770880705&feature_id=fea919893f650a8c49286568590446ef&l=20260212151825FE8CC296157A4E9DB0F5",
+      "subtitle": ""
+    }
+  },
+  "96e3adb0-0f16-4eb8-b761-0d17aaeea224": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/ndvUbxV380w/",
+    "created_at": "2026-02-12T15:19:00.914536",
+    "data": {
+      "title": "展开\n笑死，还挺严谨的，知道先把科学藏起来",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开笑死还挺严谨的知道先把科学藏起来.jpg",
+      "video_url": "//v3-web.toutiaovod.com/5aa16339525c359be5d4c64bc6466f9c/698d8d5e/video/tos/cn/tos-cn-ve-0eace5/ooyGnfIbFWSatfIxE11BVrAQGepmLCgSeELlqI/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=867&bt=867&cs=0&ds=3&ft=twOWrJLxBBkq8Zmo4tUWU_vjVQWw&mime_type=video_mp4&qs=0&rc=aDY4ODdlaGg4aWllNzlkOkBpajw4ZXM5cjtvODUzNDM8M0AuYl9eNTBgXmMxLTA1NDReYSNgcl5uMmQ0YXNhLS1kLi9zcw%3D%3D&btag=c0000e00028000&dy_q=1770880742&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260212151902975570D5A74CD1049BCA",
+      "subtitle": ""
+    }
+  },
+  "98510000-7995-4c22-80ca-c49d28f0f4c0": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/c2fiWEIl02E/",
+    "created_at": "2026-02-12T15:19:10.474210",
+    "data": {
+      "title": "展开\n要五千八，我只敢赚两块🤣",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开要五千八我只敢赚两块.jpg",
+      "video_url": "//v26-web.toutiaovod.com/6a5652ae1ca32a27356037b2f53a0cd2/698d8d16/video/tos/cn/tos-cn-ve-0eace5/oQgVVAI4F0QELQD04dhii4hpIA5f5CwL6QBvI7/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=780&bt=780&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoztUWU_vjVQWw&mime_type=video_mp4&qs=0&rc=ZDc2NmY7ZDY3aTloZzQzZUBpM2U1eG45cjd1ODUzNDM8M0AzLzVhYV5eXmIxYGIwNDEzYSNwL2NxMmRjbDJhLS1kLi9zcw%3D%3D&btag=c0000e00010000&dy_q=1770880751&feature_id=f0150a16a324336cda5d6dd0b69ed299&l=20260212151911C3D04CC309E0AACF6C68",
+      "subtitle": ""
+    }
+  },
+  "ca83b78e-e1e3-4514-a8d1-532590ccad05": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/Onr05v-GWQY/",
+    "created_at": "2026-02-12T15:19:19.698752",
+    "data": {
+      "title": "展开\n前期怂后期暴龙 #假装带孩子去打架 #看到最后 #萌娃搞笑日常 #多多妹",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开前期怂后期暴龙 假装带孩子去打架 看到最后 萌娃搞笑日常 多多妹.jpg",
+      "video_url": "//v9-web.toutiaovod.com/faf53baccd39fd28cdaaff2e7de4a351/698d8dec/video/tos/cn/tos-cn-ve-15c000-ce/oIEbInXf2g7QLgA9D3Vp3hF62XfD7KwEAKgsuB/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=1638&bt=1638&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoOtUWU_vjVQWw&mime_type=video_mp4&qs=0&rc=M2ZmNDU0OjplNWk7aDw3aEBpM2g5M3Y5cmRwODMzNDlpM0AyNi81LS8tNWIxNDAxYF81YSNramdrMmRzcV9hLS1kMGFzcw%3D%3D&btag=c0000e00028000&dy_q=1770880760&feature_id=fea919893f650a8c49286568590446ef&l=20260212151920ACAA989C49428C03F98B",
+      "subtitle": ""
+    }
+  },
+  "abf77520-2a43-40bc-a3f9-720223c38e43": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/79TSx6Nrif8/",
+    "created_at": "2026-02-12T15:19:44.114002",
+    "data": {
+      "title": "展开\n舅舅用套路给外甥发压岁钱，没想到被反拿捏，娃：你当我三岁小孩吗",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开舅舅用套路给外甥发压岁钱没想到被反拿捏娃你当我三岁小孩吗.jpg",
+      "video_url": "//v9-web.toutiaovod.com/c448c93e9f6ef6d2f95a5667b90a59d7/698d8d38/video/tos/cn/tos-cn-ve-15/oIEeVH9AQAAfTIcNgpRghkFrNBFC0QhDqTTLPm/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=1265&bt=1265&cs=0&ds=3&ft=twOWrJLxBBkq8ZmoM_UWU_vjVQWw&mime_type=video_mp4&qs=0&rc=Zjg3NGk6aTo7ZTZmZmZpO0Bpamd2NWs5cjZkOTMzNDlpM0BiLjEzLTZjNjYxMzMzMWAyYSNecS1fMmRzLjBhLS1kMDBzcw%3D%3D&btag=c0000e00010000&dy_q=1770880785&feature_id=fea919893f650a8c49286568590446ef&l=20260212151945F10F05DD3603B33BD4D4",
+      "subtitle": ""
+    }
+  },
+  "36d0a30d-e938-44e7-8438-880ffc04c3b6": {
+    "status": "completed",
+    "progress": 100,
+    "video_url": "https://m.toutiao.com/is/-_QI8_QGF5Q/",
+    "created_at": "2026-02-12T15:20:08.720544",
+    "data": {
+      "title": "展开\n哈哈哈 笑死人不偿命，最后一个最经典🤣🤣🤣#看一遍笑一遍",
+      "tags": [],
+      "cover_url": "/getFile?filename=creative_collection/展开哈哈哈 笑死人不偿命最后一个最经典看一遍笑一遍.jpg",
+      "video_url": "//v9-web.toutiaovod.com/3b46ef1724a919f3b4102262fca8d9be/698d901a/video/tos/cn/tos-cn-ve-19734/o4Z2oGOEInW0IBg1dKxpsEizQaiQpzWXI9KRP/?a=24&ch=0&cr=0&dr=0&er=0&lr=unwatermarked&net=5&cd=0%7C0%7C0%7C0&cv=1&br=827&bt=827&cs=0&ds=3&ft=WbaUMqBrffPddV~SD12NvAq-antLjrKURncnRkaCjP9_ejVhWL6&mime_type=video_mp4&qs=0&rc=OjQ5aTU8NTo5OmhoOWc1OEBpMzwzdm05cmh5ODczNDlnM0BhYzFeMmI2XjQxNDRjLTIuYSNvYW1gMmQ0L2hhLS1kLi9zcw%3D%3D&btag=c0000e00038000&dy_q=1770880810&feature_id=c971272fc3ffbf3302638b781fde9447&l=20260212152010BEC0E02C74A6A914A7E1",
+      "subtitle": ""
+    }
+  }
+}

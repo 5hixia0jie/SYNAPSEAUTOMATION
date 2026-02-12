@@ -85,6 +85,7 @@ const navSections: NavSection[] = [
         label: "Assets",
         items: [
             { label: "账号管理", href: "/account", icon: UsersRound },
+            { label: "创意采集", href: "/creative_collection", icon: Video },
             { label: "素材管理", href: "/materials", icon: FolderKanban },
             { label: "IP资源池", href: "/ip-pool", icon: Globe },
         ],
