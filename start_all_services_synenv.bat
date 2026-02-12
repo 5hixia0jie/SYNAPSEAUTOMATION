@@ -67,6 +67,13 @@ timeout /t 3 /nobreak >nul
 echo.
 echo [5] 启动 Frontend（前端界面，端口3000）...
 start "React Frontend" "%~dp0scripts\launchers\start_frontend.bat"
+timeout /t 2 /nobreak >nul
+
+echo.
+echo [6] 启动 Telegram 机器人...
+echo 提示: 请确保已设置 TELEGRAM_BOT_TOKEN 环境变量
+echo 如需设置，请在系统环境变量中添加: TELEGRAM_BOT_TOKEN=your_bot_token
+start "Telegram Bot" "%~dp0scripts\launchers\start_telegram_bot.bat"
 
 echo.
 echo ============================================
@@ -79,6 +86,7 @@ echo   - Celery Worker       (任务队列)
 echo   - Playwright Worker   (localhost:7002)
 echo   - FastAPI Backend     (http://localhost:7000)
 echo   - React Frontend      (http://localhost:3000)
+echo   - Telegram Bot        (消息处理)
 echo.
 echo 提示:
 echo   - 各服务会在独立窗口中运行
