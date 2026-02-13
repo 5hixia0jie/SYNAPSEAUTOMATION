@@ -115,5 +115,83 @@
     "error_message": null,
     "created_at": "2026-02-12T17:45:29.405806",
     "updated_at": "2026-02-12T17:45:29.405806"
+  },
+  {
+    "id": 12,
+    "title": "来财！过年好！#过年好 #来财",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection/来财过年好过年好 来财.jpg",
+    "video_url": "https://www.douyin.com/video/7605223367726526031",
+    "script": "",
+    "source_platform": "抖音",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-12T18:45:40.559607",
+    "updated_at": "2026-02-12T18:45:40.559607"
+  },
+  {
+    "id": 13,
+    "title": "哈哈哈哈哈#小小的圆头大大的问题 #圆头问号拯救我的废片",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection/哈哈哈哈哈小小的圆头大大的问题 圆头问号拯救我的废片.jpg",
+    "video_url": "https://www.douyin.com/video/7576125905999872915",
+    "script": "",
+    "source_platform": "抖音",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-12T23:20:01.923184",
+    "updated_at": "2026-02-12T23:20:01.923184"
+  },
+  {
+    "id": 18,
+    "title": "妈妈学车，宝宝害怕",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection\\custom_320785.png",
+    "video_url": "",
+    "script": "",
+    "source_platform": "自创",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-13T11:04:32.015323",
+    "updated_at": "2026-02-13T11:04:32.015323"
+  },
+  {
+    "id": 19,
+    "title": "宝宝发现爸爸的私房钱",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection\\custom_301186.png",
+    "video_url": "",
+    "script": "",
+    "source_platform": "自创",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-13T11:11:15.179118",
+    "updated_at": "2026-02-13T11:11:15.179118"
+  },
+  {
+    "id": 20,
+    "title": "小时候吃药VS现在吃药#阔爱到爆炸 #宝宝咳嗽#可爱萌妹",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection/小时候吃药VS现在吃药阔爱到爆炸 宝宝咳嗽可爱萌妹.jpg",
+    "video_url": "https://www.douyin.com/video/7588123733987750394",
+    "script": "",
+    "source_platform": "抖音",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-13T11:24:38.565686",
+    "updated_at": "2026-02-13T11:24:38.565686"
+  },
+  {
+    "id": 21,
+    "title": "当穷鬼养了条馋狗... @DOU+上热门 @抖音小助手",
+    "tags": [],
+    "cover_url": "/getFile?filename=creative_collection/当穷鬼养了条馋狗 DOU上热门 抖音小助手.jpg",
+    "video_url": "https://www.douyin.com/video/7599856048417099059",
+    "script": "",
+    "source_platform": "抖音",
+    "status": "success",
+    "error_message": null,
+    "created_at": "2026-02-13T12:25:44.290142",
+    "updated_at": "2026-02-13T12:25:44.290142"
   }
 ]

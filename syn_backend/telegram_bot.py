@@ -66,13 +66,15 @@ class TelegramBot:
         await update.message.reply_html(
             f"你好 {user.mention_html()}！\n\n" +
             "我是创意采集机器人，可以帮助你自动采集视频创意信息。\n\n" +
-            "请直接发送视频链接，我会自动执行采集任务。\n\n" +
+            "请直接发送视频链接或自创内容，我会自动执行相应处理。\n\n" +
             "支持的平台：\n" +
             "- 抖音 (douyin.com)\n" +
-            "- 头条 (toutiao.com)\n\n" +
+            "- 头条 (toutiao.com)\n" +
+            "- 自创内容（任意文本）\n\n" +
             "示例：\n" +
             "https://www.douyin.com/video/1234567890\n" +
-            "https://m.toutiao.com/is/yUQq2dpR7d0/\n\n" +
+            "https://m.toutiao.com/is/yUQq2dpR7d0/\n" +
+            "这是一个自创内容示例\n\n" +
             "使用 /help 查看更多命令。",
             reply_markup=ForceReply(selective=True),
         )
@@ -84,13 +86,15 @@ class TelegramBot:
             "/start - 开始使用机器人\n" +
             "/help - 查看帮助信息\n" +
             "/status - 查看机器人状态\n\n" +
-            "直接发送视频链接，我会自动执行采集任务。\n\n" +
+            "直接发送视频链接或自创内容，我会自动执行相应处理。\n\n" +
             "支持的平台：\n" +
             "- 抖音 (douyin.com)\n" +
-            "- 头条 (toutiao.com)\n\n" +
+            "- 头条 (toutiao.com)\n" +
+            "- 自创内容（任意文本）\n\n" +
             "示例：\n" +
             "https://www.douyin.com/video/1234567890\n" +
-            "https://m.toutiao.com/is/yUQq2dpR7d0/\n"
+            "https://m.toutiao.com/is/yUQq2dpR7d0/\n" +
+            "这是一个自创内容示例\n"
         )
     
     async def status(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -103,7 +107,8 @@ class TelegramBot:
             f"API 地址：{API_BASE_URL}\n\n" +
             "支持的平台：\n" +
             "- 抖音 (douyin.com)\n" +
-            "- 头条 (toutiao.com)\n"
+            "- 头条 (toutiao.com)\n" +
+            "- 自创内容（任意文本）\n"
         )
     
     async def handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -120,45 +125,57 @@ class TelegramBot:
         # 提取视频链接
         video_url = self._extract_video_url(message_text)
         
-        if not video_url:
-            await update.message.reply_text("请发送有效的视频链接。")
-            return
-        
-        # 验证链接是否支持
-        if not self._is_supported_platform(video_url):
-            await update.message.reply_text("抱歉，目前只支持抖音和头条平台的视频链接。")
-            return
-        
         try:
-            # 执行采集任务
-            await update.message.reply_text(f"正在执行采集任务，请稍候...\n\n链接：{video_url}")
-            
-            # 调用创意采集服务
-            task_id = await self.service.collect_video(video_url)
-            
-            # 等待任务完成
-            await update.message.reply_text(f"采集任务已提交，任务 ID：{task_id}\n\n正在处理中，请稍候...")
-            
-            # 轮询任务状态
-            status, progress, data = await self._wait_for_task_completion(task_id)
-            
-            if status == "completed" and data:
-                # 任务完成
-                title = data.get("title", "")
-                tags = data.get("tags", [])
-                cover_url = data.get("cover_url", "")
+            # 检查是否为视频链接
+            if video_url and self._is_supported_platform(video_url):
+                # 执行视频采集任务
+                await update.message.reply_text(f"正在执行采集任务，请稍候...\n\n链接：{video_url}")
                 
-                # 构建回复消息
-                reply_message = f"采集成功！\n\n标题：{title}\n"
-                if tags:
-                    reply_message += f"标签：{', '.join(tags)}\n"
-                reply_message += f"封面链接：{cover_url}\n"
-                reply_message += f"视频链接：{video_url}\n"
+                # 调用创意采集服务
+                task_id = await self.service.collect_video(video_url)
                 
-                await update.message.reply_text(reply_message)
+                # 等待任务完成
+                await update.message.reply_text(f"采集任务已提交，任务 ID：{task_id}\n\n正在处理中，请稍候...")
+                
+                # 轮询任务状态
+                status, progress, data = await self._wait_for_task_completion(task_id)
+                
+                if status == "completed" and data:
+                    # 任务完成
+                    title = data.get("title", "")
+                    tags = data.get("tags", [])
+                    cover_url = data.get("cover_url", "")
+                    
+                    # 构建回复消息
+                    reply_message = f"采集成功！\n\n标题：{title}\n"
+                    if tags:
+                        reply_message += f"标签：{', '.join(tags)}\n"
+                    reply_message += f"封面链接：{cover_url}\n"
+                    reply_message += f"视频链接：{video_url}\n"
+                    
+                    await update.message.reply_text(reply_message)
+                else:
+                    # 任务失败
+                    await update.message.reply_text(f"采集失败，请稍后重试。\n\n任务状态：{status}")
             else:
-                # 任务失败
-                await update.message.reply_text(f"采集失败，请稍后重试。\n\n任务状态：{status}")
+                # 处理自创内容
+                await update.message.reply_text(f"正在处理自创内容，请稍候...\n\n内容：{message_text}")
+                
+                # 调用创意采集服务
+                task_id = await self.service.collect_video(message_text)
+                
+                # 等待任务完成
+                await update.message.reply_text(f"任务已提交，任务 ID：{task_id}\n\n正在处理中，请稍候...")
+                
+                # 轮询任务状态
+                status, progress, data = await self._wait_for_task_completion(task_id)
+                
+                if status == "completed":
+                    # 任务完成
+                    await update.message.reply_text(f"自创内容处理成功！\n\n任务 ID：{task_id}\n内容：{message_text}")
+                else:
+                    # 任务失败
+                    await update.message.reply_text(f"处理失败，请稍后重试。\n\n任务状态：{status}")
                 
         except Exception as e:
             logger.error(f"处理消息失败: {e}")

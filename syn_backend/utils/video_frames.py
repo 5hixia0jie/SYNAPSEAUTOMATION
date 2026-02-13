@@ -106,7 +106,7 @@ def extract_first_frame(video_path: str, out_path: str, *, overwrite: bool = Tru
     
     print(f"Extracting first frame with ffmpeg: {cmd}")
     
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    proc = subprocess.run(cmd, capture_output=True, encoding='utf-8', timeout=60)
     if proc.returncode != 0 or not dst.exists():
         stderr = (proc.stderr or "").strip()
         stdout = (proc.stdout or "").strip()

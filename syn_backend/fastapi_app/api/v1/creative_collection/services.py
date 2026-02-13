@@ -14,6 +14,7 @@ from fastapi_app.core.config import settings
 from fastapi_app.core.logger import logger
 from fastapi_app.api.v1.creative_collection.crawlers import DouyinCrawler, ToutiaoCrawler
 from fastapi_app.api.v1.creative_collection.ai_service import AIService
+from fastapi_app.utils.image_utils import generate_custom_cover
 
 
 class CreativeCollectionService:
@@ -129,37 +130,67 @@ class CreativeCollectionService:
             
             # 检测平台
             platform = self._detect_platform(video_url)
+            
+            # 如果不是视频链接，创建自创内容
             if not platform:
-                raise ValueError("不支持的视频平台，仅支持抖音和头条")
-            
-            # 更新进度
-            task["progress"] = 20
-            self._save_tasks(tasks)
-            
-            # 执行采集
-            if platform == "douyin":
-                data = await self.douyin_crawler.crawl(video_url)
+                # 更新进度
+                task["progress"] = 30
+                self._save_tasks(tasks)
+                
+                # 生成包含"自创"两个字的图片
+                image_path = generate_custom_cover(video_url, Path(settings.VIDEO_FILES_DIR))
+                
+                # 构建相对路径
+                relative_path = image_path.relative_to(Path(settings.VIDEO_FILES_DIR))
+                cover_url = f"/getFile?filename={relative_path}"
+                
+                # 更新进度
+                task["progress"] = 80
+                self._save_tasks(tasks)
+                
+                # 保存采集记录
+                collection = {
+                    "id": self._get_next_id(),
+                    "title": video_url,
+                    "tags": [],
+                    "cover_url": cover_url,
+                    "video_url": "",  # 自创内容没有视频链接
+                    "script": "",
+                    "source_platform": "自创",
+                    "status": "success",
+                    "error_message": None,
+                    "created_at": datetime.now().isoformat(),
+                    "updated_at": datetime.now().isoformat()
+                }
             else:
-                data = await self.toutiao_crawler.crawl(video_url)
-            
-            # 更新进度
-            task["progress"] = 80
-            self._save_tasks(tasks)
-            
-            # 保存采集记录
-            collection = {
-                "id": self._get_next_id(),
-                "title": data.get("title", ""),
-                "tags": data.get("tags", []),
-                "cover_url": data.get("cover_url", ""),
-                "video_url": data.get("video_url", video_url),
-                "script": "",  # 不再生成拍摄脚本
-                "source_platform": "抖音" if platform == "douyin" else "头条",
-                "status": "success",
-                "error_message": None,
-                "created_at": datetime.now().isoformat(),
-                "updated_at": datetime.now().isoformat()
-            }
+                # 更新进度
+                task["progress"] = 20
+                self._save_tasks(tasks)
+                
+                # 执行采集
+                if platform == "douyin":
+                    data = await self.douyin_crawler.crawl(video_url)
+                else:
+                    data = await self.toutiao_crawler.crawl(video_url)
+                
+                # 更新进度
+                task["progress"] = 80
+                self._save_tasks(tasks)
+                
+                # 保存采集记录
+                collection = {
+                    "id": self._get_next_id(),
+                    "title": data.get("title", ""),
+                    "tags": data.get("tags", []),
+                    "cover_url": data.get("cover_url", ""),
+                    "video_url": data.get("video_url", video_url),
+                    "script": "",  # 不再生成拍摄脚本
+                    "source_platform": "抖音" if platform == "douyin" else "头条",
+                    "status": "success",
+                    "error_message": None,
+                    "created_at": datetime.now().isoformat(),
+                    "updated_at": datetime.now().isoformat()
+                }
             
             collections = self._load_collections()
             collections.append(collection)
@@ -168,7 +199,11 @@ class CreativeCollectionService:
             # 更新任务状态为完成
             task["status"] = "completed"
             task["progress"] = 100
-            task["data"] = data
+            # 只有在处理视频链接时才设置data
+            if platform:
+                task["data"] = data
+            else:
+                task["data"] = {"title": video_url}
             self._save_tasks(tasks)
             
         except Exception as e:
@@ -182,7 +217,7 @@ class CreativeCollectionService:
                 "cover_url": "",
                 "video_url": video_url,
                 "script": "",
-                "source_platform": "抖音" if platform == "douyin" else "头条" if platform else "未知",
+                "source_platform": "抖音" if platform == "douyin" else "头条" if platform else "自创",
                 "status": "failed",
                 "error_message": str(e),
                 "created_at": datetime.now().isoformat(),

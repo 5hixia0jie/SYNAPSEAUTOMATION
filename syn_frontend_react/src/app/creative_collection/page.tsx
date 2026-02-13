@@ -117,7 +117,7 @@ function CreativeCollectionPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!videoUrl) {
-      setError("请输入视频链接")
+      setError("请输入内容")
       return
     }
 
@@ -200,14 +200,14 @@ function CreativeCollectionPage() {
           <DialogTrigger asChild>
             <Button className="bg-blue-600 hover:bg-blue-700">
               <Plus className="mr-2 h-4 w-4" />
-              手动采集
+              添加内容
             </Button>
           </DialogTrigger>
           <DialogContent className="bg-gray-900 border-gray-800 text-white">
             <DialogHeader>
-              <DialogTitle>手动采集视频</DialogTitle>
+              <DialogTitle>添加创意内容</DialogTitle>
               <DialogDescription className="text-gray-400">
-                请输入来自头条或抖音的视频链接，系统将自动采集相关信息
+                请输入视频链接或自创内容，系统将自动处理
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 py-4">
@@ -218,10 +218,10 @@ function CreativeCollectionPage() {
                 </Alert>
               )}
               <div className="space-y-2">
-                <Label htmlFor="video-url" className="text-white">视频链接</Label>
+                <Label htmlFor="video-url" className="text-white">内容</Label>
                 <Input
                   id="video-url"
-                  placeholder="https://www.douyin.com/video/1234567890"
+                  placeholder="输入视频链接或自创内容"
                   value={videoUrl}
                   onChange={(e) => setVideoUrl(e.target.value)}
                   disabled={isSubmitting}

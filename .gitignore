@@ -133,3 +133,6 @@ browsers/chromium
 browsers/firefox
 ffmpeg-8.0.1-essentials_build
 ffmpeg.zip
+syn_backend/creative_collection/collections.json
+syn_backend/creative_collection/tasks.json
+syn_backend/db/frontend_accounts_snapshot.json
