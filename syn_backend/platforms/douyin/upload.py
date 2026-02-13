@@ -669,7 +669,8 @@ class DouyinUpload(BasePlatform):
                 await page.keyboard.press("Control+KeyA")
                 await page.keyboard.press("Delete")
                 await page.wait_for_timeout(100)
-
+                await page.keyboard.type(title)
+                await page.wait_for_timeout(100)
                 # ⚠️ 逐个输入标签，触发抖音的补全下拉框
                 for idx, tag in enumerate(normalized_tags):
                     # 输入 #标签名

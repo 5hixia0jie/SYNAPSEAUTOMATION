@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { Progress } from "@/components/ui/progress"
-import { Plus, Search, Filter, Download, Trash2, Eye, Play, Link as LinkIcon, RefreshCw } from "lucide-react"
+import { Plus, Search, Filter, Download, Trash2, Eye, Play, Link as LinkIcon, RefreshCw, Settings } from "lucide-react"
 
 // 导入类型和API
 import { CreativeCollection } from "./types"
@@ -38,6 +38,16 @@ function CreativeCollectionPage() {
   // 删除确认对话框状态
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
   const [currentDeleteId, setCurrentDeleteId] = useState<number | null>(null)
+  
+  // 自动采集配置相关状态
+  const [isAutoCollectDialogOpen, setIsAutoCollectDialogOpen] = useState(false)
+  const [autoCollectConfig, setAutoCollectConfig] = useState({
+    track: "",
+    collectTime: new Date().toISOString().slice(0, 16),
+    collectInterval: "60"
+  })
+  const [autoCollectError, setAutoCollectError] = useState<string | null>(null)
+  const [isAutoCollectSubmitting, setIsAutoCollectSubmitting] = useState(false)
 
   // 获取采集列表
   const fetchCollections = async () => {
@@ -177,6 +187,54 @@ function CreativeCollectionPage() {
     setCurrentDeleteId(null)
   }
 
+  // 自动采集配置提交处理
+  const handleAutoCollectSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // 验证表单
+    if (!autoCollectConfig.track) {
+      setAutoCollectError("请输入赛道名称")
+      return
+    }
+    
+    if (!autoCollectConfig.collectTime) {
+      setAutoCollectError("请选择采集时间")
+      return
+    }
+    
+    if (!autoCollectConfig.collectInterval || parseInt(autoCollectConfig.collectInterval) < 1) {
+      setAutoCollectError("请输入有效的采集间隔")
+      return
+    }
+
+    setIsAutoCollectSubmitting(true)
+    setAutoCollectError(null)
+
+    try {
+      // 这里可以调用API保存自动采集配置
+      console.log("保存自动采集配置:", autoCollectConfig)
+      
+      // 模拟API调用
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // 关闭对话框并重置表单
+      setIsAutoCollectDialogOpen(false)
+      setAutoCollectConfig({
+        track: "",
+        collectTime: new Date().toISOString().slice(0, 16),
+        collectInterval: "60"
+      })
+      
+      // 可以添加成功提示
+      console.log("自动采集配置保存成功")
+    } catch (err) {
+      setAutoCollectError("保存失败，请重试")
+      console.error("保存自动采集配置失败:", err)
+    } finally {
+      setIsAutoCollectSubmitting(false)
+    }
+  }
+
   // 格式化日期
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString()
@@ -196,63 +254,153 @@ function CreativeCollectionPage() {
           <h1 className="text-2xl font-bold text-white">创意采集</h1>
           <p className="text-gray-400 mt-1">从头条和抖音采集视频创意信息</p>
         </div>
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <Plus className="mr-2 h-4 w-4" />
-              添加内容
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="bg-gray-900 border-gray-800 text-white">
-            <DialogHeader>
-              <DialogTitle>添加创意内容</DialogTitle>
-              <DialogDescription className="text-gray-400">
-                请输入视频链接或自创内容，系统将自动处理
-              </DialogDescription>
-            </DialogHeader>
-            <form onSubmit={handleSubmit} className="space-y-4 py-4">
-              {error && (
-                <Alert variant="destructive" className="bg-red-900/30 border-red-800">
-                  <AlertTitle>错误</AlertTitle>
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
-              <div className="space-y-2">
-                <Label htmlFor="video-url" className="text-white">内容</Label>
-                <Input
-                  id="video-url"
-                  placeholder="输入视频链接或自创内容"
-                  value={videoUrl}
-                  onChange={(e) => setVideoUrl(e.target.value)}
-                  disabled={isSubmitting}
-                  className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
-                />
-              </div>
-              <DialogFooter>
-                <Button
-                  type="button"
-                  variant="secondary"
-                  onClick={() => {
-                    setIsDialogOpen(false)
-                    setVideoUrl("")
-                    setError(null)
-                  }}
-                  disabled={isSubmitting}
-                  className="bg-gray-700 hover:bg-gray-600 text-white"
-                >
-                  取消
-                </Button>
-                <Button
-                  type="submit"
-                  className="bg-blue-600 hover:bg-blue-700"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "提交中..." : "提交"}
-                </Button>
-              </DialogFooter>
-            </form>
-          </DialogContent>
-        </Dialog>
+        <div className="flex space-x-4">
+          {/* 自动采集配置按钮 */}
+          <Dialog open={isAutoCollectDialogOpen} onOpenChange={setIsAutoCollectDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="bg-purple-600 hover:bg-purple-700">
+                <Settings className="mr-2 h-4 w-4" />
+                自动采集配置
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-gray-900 border-gray-800 text-white">
+              <DialogHeader>
+                <DialogTitle>自动采集配置</DialogTitle>
+                <DialogDescription className="text-gray-400">
+                  配置自动采集的参数
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleAutoCollectSubmit} className="space-y-4 py-4">
+                {autoCollectError && (
+                  <Alert variant="destructive" className="bg-red-900/30 border-red-800">
+                    <AlertTitle>错误</AlertTitle>
+                    <AlertDescription>{autoCollectError}</AlertDescription>
+                  </Alert>
+                )}
+                <div className="space-y-2">
+                  <Label htmlFor="track" className="text-white">赛道</Label>
+                  <Input
+                    id="track"
+                    placeholder="输入赛道名称"
+                    value={autoCollectConfig.track}
+                    onChange={(e) => setAutoCollectConfig(prev => ({ ...prev, track: e.target.value }))}
+                    disabled={isAutoCollectSubmitting}
+                    className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="collect-time" className="text-white">采集时间</Label>
+                  <Input
+                    id="collect-time"
+                    type="datetime-local"
+                    value={autoCollectConfig.collectTime}
+                    onChange={(e) => setAutoCollectConfig(prev => ({ ...prev, collectTime: e.target.value }))}
+                    disabled={isAutoCollectSubmitting}
+                    className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="collect-interval" className="text-white">采集间隔 (分钟)</Label>
+                  <Input
+                    id="collect-interval"
+                    type="number"
+                    min="1"
+                    placeholder="输入采集间隔"
+                    value={autoCollectConfig.collectInterval}
+                    onChange={(e) => setAutoCollectConfig(prev => ({ ...prev, collectInterval: e.target.value }))}
+                    disabled={isAutoCollectSubmitting}
+                    className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                  />
+                </div>
+                <DialogFooter>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={() => {
+                      setIsAutoCollectDialogOpen(false)
+                      setAutoCollectConfig({
+                        track: "",
+                        collectTime: new Date().toISOString().slice(0, 16),
+                        collectInterval: "60"
+                      })
+                      setAutoCollectError(null)
+                    }}
+                    disabled={isAutoCollectSubmitting}
+                    className="bg-gray-700 hover:bg-gray-600 text-white"
+                  >
+                    取消
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="bg-purple-600 hover:bg-purple-700"
+                    disabled={isAutoCollectSubmitting}
+                  >
+                    {isAutoCollectSubmitting ? "保存中..." : "保存配置"}
+                  </Button>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
+          
+          {/* 添加内容按钮 */}
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="bg-blue-600 hover:bg-blue-700">
+                <Plus className="mr-2 h-4 w-4" />
+                添加内容
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-gray-900 border-gray-800 text-white">
+              <DialogHeader>
+                <DialogTitle>添加创意内容</DialogTitle>
+                <DialogDescription className="text-gray-400">
+                  请输入视频链接或自创内容，系统将自动处理
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4 py-4">
+                {error && (
+                  <Alert variant="destructive" className="bg-red-900/30 border-red-800">
+                    <AlertTitle>错误</AlertTitle>
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
+                <div className="space-y-2">
+                  <Label htmlFor="video-url" className="text-white">内容</Label>
+                  <Input
+                    id="video-url"
+                    placeholder="输入视频链接或自创内容"
+                    value={videoUrl}
+                    onChange={(e) => setVideoUrl(e.target.value)}
+                    disabled={isSubmitting}
+                    className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                  />
+                </div>
+                <DialogFooter>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={() => {
+                      setIsDialogOpen(false)
+                      setVideoUrl("")
+                      setError(null)
+                    }}
+                    disabled={isSubmitting}
+                    className="bg-gray-700 hover:bg-gray-600 text-white"
+                  >
+                    取消
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="bg-blue-600 hover:bg-blue-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "提交中..." : "提交"}
+                  </Button>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       {/* 任务状态显示 */}

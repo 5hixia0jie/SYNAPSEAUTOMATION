@@ -688,6 +688,9 @@ function AccountPageContent() {
       enableSorting: false,
       cell: ({ row }) => (
         <div className="flex justify-end gap-2">
+          <Button size="sm" variant="default" className="h-8 rounded-xl px-3 text-xs">
+            交互
+          </Button>
           <Button size="sm" variant="secondary" className="h-8 rounded-xl px-3 text-xs" onClick={() => openEditDialog(row.original)}>
             编辑
           </Button>
